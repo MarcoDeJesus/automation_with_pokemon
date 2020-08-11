@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using System;
 namespace PageObjects
 
@@ -8,6 +10,29 @@ namespace PageObjects
         public static IWebDriver WebDriver { get; set; }
         public static int ImplicitWaitSeconds = 0;
         public static int TimeOutSeconds = 0;
+
+
+        public static void OpenWebBrowser(string wb)
+        {
+            switch (wb)
+            {
+                case "gc":
+                    WebDriver = new ChromeDriver();
+                    WebDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
+                    WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+                    TimeOutSeconds = 30;
+                    ImplicitWaitSeconds = 5;
+                    break;
+                case "ff":
+                    WebDriver = new FirefoxDriver();
+                    WebDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
+                    WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+                    TimeOutSeconds = 30;
+                    ImplicitWaitSeconds = 5;
+                    break;
+            }
+        }
+
 
         public static void LoadWebPage(string url)
         {
