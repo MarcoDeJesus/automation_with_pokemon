@@ -6,46 +6,46 @@ namespace PageObjects
     public class WebPage
     {
         public static IWebDriver WebDriver { get; set; }
-        public int ImplicitWaitSeconds = 0;
-        public int TimeOutSeconds = 0;
+        public static int ImplicitWaitSeconds = 0;
+        public static int TimeOutSeconds = 0;
 
-        public void LoadWebPage(string url)
+        public static void LoadWebPage(string url)
         {
             WebDriver.Navigate().GoToUrl(url);
         }
 
-        public void MaximizeWindow()
+        public static void MaximizeWindow()
         {
             WebDriver.Manage().Window.Maximize();
         }
 
 
-        public void CloseBrowser()
+        public static void CloseBrowser()
         {
             WebDriver.Close();
         }
 
 
-        public void MinimizeWindow()
+        public static void MinimizeWindow()
         {
             WebDriver.Manage().Window.Minimize();
         }
 
 
-        public void RefreshBrowser()
+        public static void RefreshBrowser()
         {
             WebDriver.Navigate().Refresh();
         }
 
 
-        public void UpdateImplicitWait(int seconds)
+        public static void UpdateImplicitWait(int seconds)
         {
             ImplicitWaitSeconds = seconds;
             WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(seconds);
         }
 
 
-        public void UpdateTimeOut(int seconds)
+        public static void UpdateTimeOut(int seconds)
         {
             TimeOutSeconds = seconds;
             WebDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(seconds);
