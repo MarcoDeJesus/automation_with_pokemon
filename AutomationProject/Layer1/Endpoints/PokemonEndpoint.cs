@@ -19,5 +19,14 @@ namespace APIClients
             IRestResponse ResponseObject = APIClientObject.ExecuteGETCall(URL, URI);
             return ResponseObject;
         }
+
+        public IRestResponse RetrievePokemonInformation(int PokemonNumber)
+        {
+            string URI = "api/v2/pokemon/" + PokemonNumber.ToString();
+            APIClient APIClientObject = new APIClient();
+            IRestResponse ResponseObject = APIClientObject.ExecuteGETCall(URL, URI);
+            return ResponseObject;
+        }
+
     }
 }

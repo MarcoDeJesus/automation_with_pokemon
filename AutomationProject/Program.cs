@@ -17,6 +17,12 @@ namespace AutomationProject
             Console.WriteLine(statusCode);
             Console.WriteLine(response);
 
+            IRestResponse Response2 = PokEndObj.RetrievePokemonInformation(150);
+            int statusCode2 = (int)Response2.StatusCode;
+            string response2 = Response2.Content;
+            Console.WriteLine(statusCode2);
+            Console.WriteLine(response2);
+
         }
     }
 }
