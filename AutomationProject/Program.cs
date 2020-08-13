@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using APIClients;
+using NUnit.Framework;
+using PokemonClasses;
+using PokemonTypesNamespace;
 using RestSharp;
 
 namespace AutomationProject
@@ -9,20 +13,18 @@ namespace AutomationProject
     {
         static void Main(string[] args)
         {
-            string APIURL = "https://pokeapi.co/";
-            PokemonEndpoint PokEndObj = new PokemonEndpoint(APIURL);
-            IRestResponse Response = PokEndObj.RetrievePokemonInformation("PIKACHU");
-            int statusCode = (int)Response.StatusCode;
-            string response = Response.Content;
-            Console.WriteLine(statusCode);
-            Console.WriteLine(response);
-
-            IRestResponse Response2 = PokEndObj.RetrievePokemonInformation(150);
-            int statusCode2 = (int)Response2.StatusCode;
-            string response2 = Response2.Content;
-            Console.WriteLine(statusCode2);
-            Console.WriteLine(response2);
-
+            PokemonFactory Mewtwo = new PokemonFactory("Mewtwo");
+            Console.WriteLine(Mewtwo.Number);
+            Console.WriteLine(Mewtwo.BaseSpecialAttack);
+            Console.WriteLine(Mewtwo.BaseSpeed);
+            foreach (PokemonAbility ab in Mewtwo.PokemonAbilities)
+            {
+                Console.WriteLine(ab.AbilityName);
+            }
+            foreach (PokemonTypes ty in Mewtwo.PokemonTypes)
+            {
+                Console.WriteLine(ty.TypeName);
+            }
         }
     }
 }
