@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Net;
+using APIClients;
+using RestSharp;
 
 namespace AutomationProject
 {
@@ -6,7 +9,14 @@ namespace AutomationProject
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string APIURL = "https://pokeapi.co/";
+            PokemonEndpoint PokEndObj = new PokemonEndpoint(APIURL);
+            IRestResponse Response = PokEndObj.RetrievePokemonInformation("PIKACHU");
+            int statusCode = (int)Response.StatusCode;
+            string response = Response.Content;
+            Console.WriteLine(statusCode);
+            Console.WriteLine(response);
+
         }
     }
 }
