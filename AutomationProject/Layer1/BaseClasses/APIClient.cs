@@ -17,6 +17,17 @@ namespace APIClients
         }
 
 
+        public IRestResponse ExecuteDELETECall(string URL, string URI)
+        {
+            IRestClient Client;
+            Uri BaseURL = new Uri(URL);
+            Client = new RestClient(BaseURL);
+            IRestRequest Request = new RestRequest(URI, Method.DELETE);
+            IRestResponse RequestResponse = Client.Execute(Request);
+            return RequestResponse;
+        }
+
+
         public IRestResponse ExecutePOSTCall(string URL, string URI, string Payload)
         {
             IRestClient Client;

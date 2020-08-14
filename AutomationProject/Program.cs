@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using APIClients;
-using NUnit.Framework;
-using PokemonClasses;
-using PokemonTypesNamespace;
-using RestSharp;
-
+﻿/***
 namespace AutomationProject
 {
     class Program
@@ -27,4 +19,4 @@ namespace AutomationProject
             }
         }
     }
-}
+}***/

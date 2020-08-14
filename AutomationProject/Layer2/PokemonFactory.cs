@@ -27,9 +27,10 @@ namespace PokemonClasses
             string APIURL = "https://pokeapi.co/";
             PokemonEndpoint PokEndObj = new PokemonEndpoint(APIURL);
             RequestResponse = PokEndObj.RetrievePokemonInformation(pokemonNumber);
-            dynamic PokemonData = JsonConvert.DeserializeObject(RequestResponse.Content);
+            dynamic PokemonData;
             if ((int)RequestResponse.StatusCode == 200)
             {
+                PokemonData = JsonConvert.DeserializeObject(RequestResponse.Content);
                 SetPokemonData(PokemonData);
             }
 
@@ -40,9 +41,10 @@ namespace PokemonClasses
             string APIURL = "https://pokeapi.co/";
             PokemonEndpoint PokEndObj = new PokemonEndpoint(APIURL);
             RequestResponse = PokEndObj.RetrievePokemonInformation(pokemonName.ToLower());
-            dynamic PokemonData = JsonConvert.DeserializeObject(RequestResponse.Content);
+            dynamic PokemonData;
             if ((int)RequestResponse.StatusCode == 200)
             {
+                PokemonData = JsonConvert.DeserializeObject(RequestResponse.Content);
                 SetPokemonData(PokemonData);
             }
         }
