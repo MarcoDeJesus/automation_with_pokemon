@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.Generic;
 
 namespace PageObjects
@@ -25,47 +26,45 @@ namespace PageObjects
 
         public void SearchForThisElement(IWebDriver driver)
         {
-            string searchMethod = SelectorMethod.ToLower();
-            string searchLocator = Selector;
-            switch (searchMethod)
+            switch (SelectorMethod.ToLower())
             {
                 case "id":
-                    IReadOnlyList<IWebElement> ElementsListID = driver.FindElements(By.Id(searchLocator));
+                    IReadOnlyList<IWebElement> ElementsListID = driver.FindElements(By.Id(Selector));
                     foreach (IWebElement element in ElementsListID)
                     {
                         AllMatchingResults.Add(element);
                     }
                     break;
                 case "class":
-                    IReadOnlyList<IWebElement> ElementsListClass = driver.FindElements(By.ClassName(searchLocator));
+                    IReadOnlyList<IWebElement> ElementsListClass = driver.FindElements(By.ClassName(Selector));
                     foreach (IWebElement element in ElementsListClass)
                     {
                         AllMatchingResults.Add(element);
                     }
                     break;
                 case "name":
-                    IReadOnlyList<IWebElement> ElementsListName = driver.FindElements(By.Name(searchLocator));
+                    IReadOnlyList<IWebElement> ElementsListName = driver.FindElements(By.Name(Selector));
                     foreach (IWebElement element in ElementsListName)
                     {
                         AllMatchingResults.Add(element);
                     }
                     break;
                 case "css":
-                    IReadOnlyList<IWebElement> ElementsListCss = driver.FindElements(By.CssSelector(searchLocator));
+                    IReadOnlyList<IWebElement> ElementsListCss = driver.FindElements(By.CssSelector(Selector));
                     foreach (IWebElement element in ElementsListCss)
                     {
                         AllMatchingResults.Add(element);
                     }
                     break;
                 case "xpath":
-                    IReadOnlyList<IWebElement> ElementsListXpath = driver.FindElements(By.XPath(searchLocator));
+                    IReadOnlyList<IWebElement> ElementsListXpath = driver.FindElements(By.XPath(Selector));
                     foreach (IWebElement element in ElementsListXpath)
                     {
                         AllMatchingResults.Add(element);
                     }
                     break;
                 case "linktext":
-                    IReadOnlyList<IWebElement> ElementsListLinkText = driver.FindElements(By.LinkText(searchLocator));
+                    IReadOnlyList<IWebElement> ElementsListLinkText = driver.FindElements(By.LinkText(Selector));
                     foreach (IWebElement element in ElementsListLinkText)
                     {
                         AllMatchingResults.Add(element);
