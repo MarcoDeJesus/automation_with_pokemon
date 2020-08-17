@@ -1,18 +1,18 @@
-﻿using NUnit.Framework;
+﻿using APIModules;
+using NUnit.Framework;
 using PokemonClasses;
-using System;
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
 
-namespace AutomationProject.Layer3.PokemonAPI
+namespace TestsSteps
 {
     [Binding]
     public class Pokemon_EndpointSteps
     {
-        Dictionary<string, dynamic> TestContextData = new Dictionary<string, dynamic>();
+        public static Dictionary<string, dynamic> TestContextData = new Dictionary<string, dynamic>();
 
         [Given(@"that the user has selected the '(.*)' Pokemon")]
-        public void GivenThatTheUserHasSelectedThePokemon(string p0)
+        public static void GivenThatTheUserHasSelectedThePokemon(string p0)
         {
             if (TestContextData.ContainsKey("PokemonName"))
             {
@@ -23,7 +23,7 @@ namespace AutomationProject.Layer3.PokemonAPI
         }
         
         [When(@"the test user queries the Pokemon API with the selected Pokemon")]
-        public void WhenTheTestUserQueriesThePokemonAPIWithTheSelectedPokemon()
+        public static void WhenTheTestUserQueriesThePokemonAPIWithTheSelectedPokemon()
         {
             if (TestContextData.ContainsKey("TestPokemon"))
             {
@@ -36,7 +36,7 @@ namespace AutomationProject.Layer3.PokemonAPI
 
 
         [Then(@"The API response should include the name of the provided Pokemon")]
-        public void ThenTheAPIResponseShouldIncludeTheNameOfTheProvidedPokemon()
+        public static void ThenTheAPIResponseShouldIncludeTheNameOfTheProvidedPokemon()
         {
             PokemonFactory TestPokemon = TestContextData["TestPokemon"];
             string PokemonName = TestContextData["PokemonName"];
@@ -45,42 +45,42 @@ namespace AutomationProject.Layer3.PokemonAPI
 
 
         [Then(@"The API response should return the pokemon number as '(.*)'")]
-        public void ThenTheAPIResponseShouldReturnThePokemonNumberAs(string poknumber)
+        public static void ThenTheAPIResponseShouldReturnThePokemonNumberAs(string poknumber)
         {
             PokemonFactory TestPokemon = TestContextData["TestPokemon"];
             Assert.True(TestPokemon.Number.ToString().Equals(poknumber));
         }
 
         [Then(@"The API response should return the pokemon Base HP as as '(.*)'")]
-        public void ThenTheAPIResponseShouldReturnThePokemonBaseHPAsAs(string p0)
+        public static void ThenTheAPIResponseShouldReturnThePokemonBaseHPAsAs(string p0)
         {
             PokemonFactory TestPokemon = TestContextData["TestPokemon"];
             Assert.True(TestPokemon.BaseHP.ToString().Equals(p0));
         }
 
         [Then(@"The API response should return the pokemon Base Attack as as '(.*)'")]
-        public void ThenTheAPIResponseShouldReturnThePokemonBaseAttackAsAs(string p0)
+        public static void ThenTheAPIResponseShouldReturnThePokemonBaseAttackAsAs(string p0)
         {
             PokemonFactory TestPokemon = TestContextData["TestPokemon"];
             Assert.True(TestPokemon.BaseAttack.ToString().Equals(p0));
         }
 
         [Then(@"The API response should return the pokemon Base Defense as as '(.*)'")]
-        public void ThenTheAPIResponseShouldReturnThePokemonBaseDefenseAsAs(string p0)
+        public static void ThenTheAPIResponseShouldReturnThePokemonBaseDefenseAsAs(string p0)
         {
             PokemonFactory TestPokemon = TestContextData["TestPokemon"];
             Assert.True(TestPokemon.BaseDefense.ToString().Equals(p0));
         }
 
         [Then(@"The API response should return the pokemon Base Special Attack as as '(.*)'")]
-        public void ThenTheAPIResponseShouldReturnThePokemonBaseSpecialAttackAsAs(string p0)
+        public static void ThenTheAPIResponseShouldReturnThePokemonBaseSpecialAttackAsAs(string p0)
         {
             PokemonFactory TestPokemon = TestContextData["TestPokemon"];
             Assert.True(TestPokemon.BaseSpecialAttack.ToString().Equals(p0));
         }
 
         [Then(@"The API response should return the pokemon Base Special Defense as as '(.*)'")]
-        public void ThenTheAPIResponseShouldReturnThePokemonBaseSpecialDefenseAsAs(string p0)
+        public static void ThenTheAPIResponseShouldReturnThePokemonBaseSpecialDefenseAsAs(string p0)
         {
             PokemonFactory TestPokemon = TestContextData["TestPokemon"];
             Assert.True(TestPokemon.BaseSpecialDefense.ToString().Equals(p0));
@@ -88,7 +88,7 @@ namespace AutomationProject.Layer3.PokemonAPI
 
 
         [Then(@"The API response should return the pokemon Base Speed as as '(.*)'")]
-        public void ThenTheAPIResponseShouldReturnThePokemonBaseSpeedAsAs(string p0)
+        public static void ThenTheAPIResponseShouldReturnThePokemonBaseSpeedAsAs(string p0)
         {
             PokemonFactory TestPokemon = TestContextData["TestPokemon"];
             Assert.True(TestPokemon.BaseSpeed.ToString().Equals(p0));

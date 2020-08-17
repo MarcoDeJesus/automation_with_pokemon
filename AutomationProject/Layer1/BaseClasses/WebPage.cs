@@ -1,9 +1,11 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Interactions;
 using System;
-namespace PageObjects
 
+
+namespace PageObjects
 {
     public class WebPage
     {
@@ -74,6 +76,45 @@ namespace PageObjects
         {
             TimeOutSeconds = seconds;
             WebDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(seconds);
+        }
+
+        public static WebElement ClickElement(WebElement we)
+        {
+            we.SearchForThisElement();
+            if (we.AllMatchingResults.Count == 1)
+            {
+                we.AllMatchingResults[0].Click();
+            }
+            return we;
+        }
+
+
+        public static WebElement EnterTextInElement(WebElement we, string text)
+        {
+            we.SearchForThisElement();
+            if (we.AllMatchingResults.Count == 1)
+            {
+                we.AllMatchingResults[0].SendKeys(text);
+            }
+            return we;
+        }
+
+
+        public static WebElement ClearTextBoxText(WebElement we)
+        {
+            we.SearchForThisElement();
+            if (we.AllMatchingResults.Count == 1)
+            {
+                we.AllMatchingResults[0].SendKeys(Keys.Control + "a");
+                we.AllMatchingResults[0].SendKeys(Keys.Delete);
+            }
+            return we;
+        }
+
+        public static Actions NewActionsObject()
+        {
+            Actions actions = new Actions(WebDriver);
+            return actions;
         }
 
 

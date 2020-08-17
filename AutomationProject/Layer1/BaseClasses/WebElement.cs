@@ -24,47 +24,47 @@ namespace PageObjects
             SelectorMethod = selectorMethod;
         }
 
-        public void SearchForThisElement(IWebDriver driver)
+        public void SearchForThisElement()
         {
             switch (SelectorMethod.ToLower())
             {
                 case "id":
-                    IReadOnlyList<IWebElement> ElementsListID = driver.FindElements(By.Id(Selector));
+                    IReadOnlyList<IWebElement> ElementsListID = WebPage.WebDriver.FindElements(By.Id(Selector));
                     foreach (IWebElement element in ElementsListID)
                     {
                         AllMatchingResults.Add(element);
                     }
                     break;
                 case "class":
-                    IReadOnlyList<IWebElement> ElementsListClass = driver.FindElements(By.ClassName(Selector));
+                    IReadOnlyList<IWebElement> ElementsListClass = WebPage.WebDriver.FindElements(By.ClassName(Selector));
                     foreach (IWebElement element in ElementsListClass)
                     {
                         AllMatchingResults.Add(element);
                     }
                     break;
                 case "name":
-                    IReadOnlyList<IWebElement> ElementsListName = driver.FindElements(By.Name(Selector));
+                    IReadOnlyList<IWebElement> ElementsListName = WebPage.WebDriver.FindElements(By.Name(Selector));
                     foreach (IWebElement element in ElementsListName)
                     {
                         AllMatchingResults.Add(element);
                     }
                     break;
                 case "css":
-                    IReadOnlyList<IWebElement> ElementsListCss = driver.FindElements(By.CssSelector(Selector));
+                    IReadOnlyList<IWebElement> ElementsListCss = WebPage.WebDriver.FindElements(By.CssSelector(Selector));
                     foreach (IWebElement element in ElementsListCss)
                     {
                         AllMatchingResults.Add(element);
                     }
                     break;
                 case "xpath":
-                    IReadOnlyList<IWebElement> ElementsListXpath = driver.FindElements(By.XPath(Selector));
+                    IReadOnlyList<IWebElement> ElementsListXpath = WebPage.WebDriver.FindElements(By.XPath(Selector));
                     foreach (IWebElement element in ElementsListXpath)
                     {
                         AllMatchingResults.Add(element);
                     }
                     break;
                 case "linktext":
-                    IReadOnlyList<IWebElement> ElementsListLinkText = driver.FindElements(By.LinkText(Selector));
+                    IReadOnlyList<IWebElement> ElementsListLinkText = WebPage.WebDriver.FindElements(By.LinkText(Selector));
                     foreach (IWebElement element in ElementsListLinkText)
                     {
                         AllMatchingResults.Add(element);
