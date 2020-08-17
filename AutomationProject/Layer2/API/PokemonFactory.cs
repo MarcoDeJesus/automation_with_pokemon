@@ -82,18 +82,18 @@ namespace APIModules
             BaseSpeed = data["stats"][5]["base_stat"];
         }
 
-        public string GetThisPokemonPrimaryType()
+        public PokemonTypes GetThisPokemonPrimaryType()
         {
-            string type = null;
+            PokemonTypes ThisType = new PokemonTypes();
             foreach (PokemonTypes pkt in PokemonTypes)
             {
                 if (pkt.TypeSlot == 1)
                 {
-                    type = pkt.TypeName;
+                    ThisType = pkt;
                     break;
                 }
             }
-            return type;
+            return ThisType;
         }
 
 
@@ -111,18 +111,18 @@ namespace APIModules
             return hasSecond;
         }
 
-        public string GetThisPokemonSecondaryType()
+        public PokemonTypes GetThisPokemonSecondaryType()
         {
-            string type = null;
+            PokemonTypes ThisType = new PokemonTypes();
             foreach (PokemonTypes pkt in PokemonTypes)
             {
                 if (pkt.TypeSlot == 2)
                 {
-                    type = pkt.TypeName;
+                    ThisType = pkt;
                     break;
                 }
             }
-            return type;
+            return ThisType;
         }
 
 

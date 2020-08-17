@@ -74,10 +74,11 @@ namespace TestsSteps
         public void ThenThePokemonPokedexEntryShouldDisplayACorrectPrimaryType()
         {
             PokemonFactory TestPokemon = TestContextData["TestPokemon"];
-            string primaryAPI = TestPokemon.GetThisPokemonPrimaryType();
+            PokemonTypes PrimaryTypeObject = TestPokemon.GetThisPokemonPrimaryType();
+            string primaryAPI = PrimaryTypeObject.TypeName.ToLower();
             PokemonDetailPageModule DetailMod = new PokemonDetailPageModule();
             string primaryUI = DetailMod.GetPokemonPrimaryType();
-            Assert.IsTrue(primaryAPI.ToLower().Equals(primaryUI.ToLower()));
+            Assert.IsTrue(primaryAPI.Equals(primaryUI.ToLower()));
         }
 
         [Then(@"the Pokemon Pokedex entry should display a correct secondary type")]
@@ -88,11 +89,12 @@ namespace TestsSteps
             bool hasSecondaryAPI = TestPokemon.ThisPokemonHasASecondType();   
             if (hasSecondaryAPI)
             {
-                string secondAPI = TestPokemon.GetThisPokemonSecondaryType();
+                PokemonTypes SecondTypeObject = TestPokemon.GetThisPokemonSecondaryType();
+                string secondAPI = SecondTypeObject.TypeName.ToLower();
                 bool hasSecondaryUI = DetailMod.ThisPokemonHasASecondType();
                 Assert.IsTrue(hasSecondaryAPI.Equals(hasSecondaryUI));
                 string secondUI = DetailMod.GetPokemonSecondaryType();
-                Assert.IsTrue(secondAPI.ToLower().Equals(secondUI.ToLower()));
+                Assert.IsTrue(secondAPI.Equals(secondUI.ToLower()));
             }
             else 
             {
