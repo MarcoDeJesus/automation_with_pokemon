@@ -4,9 +4,9 @@ using RestSharp;
 using System;
 using Newtonsoft.Json;
 using System.Collections.Generic;
-using NUnit.Framework.Constraints;
+using PokemonClasses;
 
-namespace PokemonClasses
+namespace APIModules
 {
     class PokemonFactory
     {
