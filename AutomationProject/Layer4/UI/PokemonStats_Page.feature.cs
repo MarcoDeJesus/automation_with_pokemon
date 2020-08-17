@@ -75,11 +75,12 @@ namespace AutomationProject.Layer4.UI
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("The Data from Pokemon API should match the Pokemon DataBase detail page")]
+        [NUnit.Framework.DescriptionAttribute("The Data from Pokemon API should match the Pokemon DataBase detail page - With Na" +
+            "vigation")]
         [NUnit.Framework.CategoryAttribute("mytag")]
         [NUnit.Framework.TestCaseAttribute("Mewtwo", null)]
         [NUnit.Framework.TestCaseAttribute("Dragonite", null)]
-        public virtual void TheDataFromPokemonAPIShouldMatchThePokemonDataBaseDetailPage(string name, string[] exampleTags)
+        public virtual void TheDataFromPokemonAPIShouldMatchThePokemonDataBaseDetailPage_WithNavigation(string name, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "mytag"};
@@ -90,7 +91,8 @@ namespace AutomationProject.Layer4.UI
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("name", name);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The Data from Pokemon API should match the Pokemon DataBase detail page", null, tagsOfScenario, argumentsOfScenario);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The Data from Pokemon API should match the Pokemon DataBase detail page - With Na" +
+                    "vigation", null, tagsOfScenario, argumentsOfScenario);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -149,6 +151,75 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.And("the Pokemon Pokedex entry should display a correct Base Sp. Defense stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 20
+  testRunner.And("the Pokemon Pokedex entry should display a correct Base Speed stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("The Data from Pokemon API should match the Pokemon DataBase detail page - With Di" +
+            "rect Link")]
+        [NUnit.Framework.TestCaseAttribute("Mewtwo", null)]
+        [NUnit.Framework.TestCaseAttribute("Dragonite", null)]
+        public virtual void TheDataFromPokemonAPIShouldMatchThePokemonDataBaseDetailPage_WithDirectLink(string name, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("name", name);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The Data from Pokemon API should match the Pokemon DataBase detail page - With Di" +
+                    "rect Link", null, tagsOfScenario, argumentsOfScenario);
+#line 29
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 30
+ testRunner.Given(string.Format("that the test user has selected a the \'{0}\' Pokemon for this test", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 31
+ testRunner.When("the user loads the Pokemon DB Detail page for the selected Pokemon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 32
+ testRunner.Then("the Pokemon Pokedex entry should display the pokemon name in the header label", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 33
+  testRunner.And("the Pokemon Pokedex entry should display a correct primary type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 34
+  testRunner.And("the Pokemon Pokedex entry should display a correct secondary type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 35
+  testRunner.And("the Pokemon Pokedex entry should display a correct Base HP stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 36
+  testRunner.And("the Pokemon Pokedex entry should display a correct Base Attack stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 37
+  testRunner.And("the Pokemon Pokedex entry should display a correct Base Defense stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 38
+  testRunner.And("the Pokemon Pokedex entry should display a correct Base Sp. Attack stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 39
+  testRunner.And("the Pokemon Pokedex entry should display a correct Base Sp. Defense stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 40
   testRunner.And("the Pokemon Pokedex entry should display a correct Base Speed stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }

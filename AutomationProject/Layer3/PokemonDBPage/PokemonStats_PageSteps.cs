@@ -52,6 +52,19 @@ namespace TestsSteps
         }
 
 
+        [When(@"the user loads the Pokemon DB Detail page for the selected Pokemon")]
+        public void WhenTheUserLoadsThePokemonDBDetailPageForTheSelectedPokemon()
+        {
+            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
+            string url = "https://pokemondb.net/pokedex/"+TestPokemon.Name;
+            WebPage.OpenWebBrowser("gc");
+            WebPage.MaximizeWindow();
+            WebPage.LoadWebPage(url);
+            GenericSteps.isWebTest = true;
+        }
+
+
+
         [When(@"the user selects the Test Pokemon from the list of Pokemon")]
         public void WhenTheUserSelectsTheTestPokemonFromTheListOfPokemon()
         {
