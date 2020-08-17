@@ -8,6 +8,7 @@ namespace PokemonTypesNamespace
     {
         public string TypeName;
         public int TypeSlot;
+        public int TypeID;
 
         public PokemonTypes()
         { }

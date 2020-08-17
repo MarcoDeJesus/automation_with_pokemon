@@ -9,5 +9,6 @@ namespace PokemonClasses
         public string AbilityName;
         public int AbilitySlot;
         public bool IsHiddenAbility;
+        public int AbilityID;
     }
 }
