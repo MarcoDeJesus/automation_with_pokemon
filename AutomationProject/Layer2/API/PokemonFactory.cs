@@ -82,6 +82,50 @@ namespace APIModules
             BaseSpeed = data["stats"][5]["base_stat"];
         }
 
+        public string GetThisPokemonPrimaryType()
+        {
+            string type = null;
+            foreach (PokemonTypes pkt in PokemonTypes)
+            {
+                if (pkt.TypeSlot == 1)
+                {
+                    type = pkt.TypeName;
+                    break;
+                }
+            }
+            return type;
+        }
+
+
+        public bool ThisPokemonHasASecondType()
+        {
+            bool hasSecond = false;
+            foreach (PokemonTypes pkt in PokemonTypes)
+            {
+                if (pkt.TypeSlot == 2)
+                {
+                    hasSecond = true;
+                    break;
+                }
+            }
+            return hasSecond;
+        }
+
+        public string GetThisPokemonSecondaryType()
+        {
+            string type = null;
+            foreach (PokemonTypes pkt in PokemonTypes)
+            {
+                if (pkt.TypeSlot == 2)
+                {
+                    type = pkt.TypeName;
+                    break;
+                }
+            }
+            return type;
+        }
+
+
     }
 
 }

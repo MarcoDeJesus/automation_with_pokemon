@@ -10,8 +10,8 @@ Scenario Outline: The Data from Pokemon API should match the Pokemon DataBase de
 		And that the user has navigated to the National Pokedex List with the Quick Link in Home Page
 	When the user selects the Test Pokemon from the list of Pokemon
 	Then the Pokemon Pokedex entry should display the pokemon name in the header label
-		#And the Pokemon Pokedex entry should display a correct primary type
-		#And the Pokemon Pokedex entry should display a correct secondary type
+		And the Pokemon Pokedex entry should display a correct primary type
+		And the Pokemon Pokedex entry should display a correct secondary type
 		And the Pokemon Pokedex entry should display a correct Base HP stat value
 		And the Pokemon Pokedex entry should display a correct Base Attack stat value
 		And the Pokemon Pokedex entry should display a correct Base Defense stat value

@@ -2,6 +2,7 @@
 using AutomationProject.Layer2.UI;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PageObjects;
+using PokemonTypesNamespace;
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
 using UIModules;
@@ -72,19 +73,32 @@ namespace TestsSteps
         [Then(@"the Pokemon Pokedex entry should display a correct primary type")]
         public void ThenThePokemonPokedexEntryShouldDisplayACorrectPrimaryType()
         {
-            //GetPrimaryTypeFromUI
-            //GetPrimaryTypeFromAPI
-            //Compare Value from API with UI
+            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
+            string primaryAPI = TestPokemon.GetThisPokemonPrimaryType();
+            PokemonDetailPageModule DetailMod = new PokemonDetailPageModule();
+            string primaryUI = DetailMod.GetPokemonPrimaryType();
+            Assert.IsTrue(primaryAPI.ToLower().Equals(primaryUI.ToLower()));
         }
 
         [Then(@"the Pokemon Pokedex entry should display a correct secondary type")]
         public void ThenThePokemonPokedexEntryShouldDisplayACorrectSecondaryType()
         {
-            //CheckInAPIIfPokemonHasSecondaryType (bool)
-            //If true, get it
-            //CheckInUIIfPokemonHasSecondaryType
-            //If true, get it
-            //Compare Value from API with UI
+            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
+            PokemonDetailPageModule DetailMod = new PokemonDetailPageModule();
+            bool hasSecondaryAPI = TestPokemon.ThisPokemonHasASecondType();   
+            if (hasSecondaryAPI)
+            {
+                string secondAPI = TestPokemon.GetThisPokemonSecondaryType();
+                bool hasSecondaryUI = DetailMod.ThisPokemonHasASecondType();
+                Assert.IsTrue(hasSecondaryAPI.Equals(hasSecondaryUI));
+                string secondUI = DetailMod.GetPokemonSecondaryType();
+                Assert.IsTrue(secondAPI.ToLower().Equals(secondUI.ToLower()));
+            }
+            else 
+            {
+                bool hasSecondaryUI = DetailMod.ThisPokemonHasASecondType();
+                Assert.IsTrue(hasSecondaryAPI.Equals(hasSecondaryUI));
+            }
         }
         
         [Then(@"the Pokemon Pokedex entry should display a correct Base HP stat value")]

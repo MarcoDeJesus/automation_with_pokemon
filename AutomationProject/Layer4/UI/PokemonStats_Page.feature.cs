@@ -127,6 +127,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line 12
  testRunner.Then("the Pokemon Pokedex entry should display the pokemon name in the header label", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 13
+  testRunner.And("the Pokemon Pokedex entry should display a correct primary type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 14
+  testRunner.And("the Pokemon Pokedex entry should display a correct secondary type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
 #line 15
   testRunner.And("the Pokemon Pokedex entry should display a correct Base HP stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

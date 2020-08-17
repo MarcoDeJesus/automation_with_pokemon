@@ -35,13 +35,13 @@ namespace AutomationProject.Layer2.UI
         public List<PokemonTypes> FindPokemonTypes()
         {
             PokemonDetailPagePokedex DexObject = new PokemonDetailPagePokedex();
-            WebElement PokemonNumber = DexObject.FindNationalDexNumberLabel();
+            WebElement PokemonTypes = DexObject.FindPokemonTypesLabels();
             List<PokemonTypes> TypesPage = new List<PokemonTypes>();
-            int amountTypes = PokemonNumber.AllMatchingResults.Count;
+            int amountTypes = PokemonTypes.AllMatchingResults.Count;
             for (int i = 0; i <= amountTypes - 1; i++)
             {
                 PokemonTypes Type = new PokemonTypes();
-                Type.TypeName = PokemonNumber.AllMatchingResults[i].Text;
+                Type.TypeName = PokemonTypes.AllMatchingResults[i].Text;
                 Type.TypeSlot = i + 1;
                 TypesPage.Add(Type);
             }
@@ -118,6 +118,52 @@ namespace AutomationProject.Layer2.UI
                 spe = StatsObject.BaseStatSpeed.AllMatchingResults[0].Text;
             }
             return spe;
+        }
+
+        public string GetPokemonPrimaryType()
+        {
+            string type = null;
+            List<PokemonTypes> Types = FindPokemonTypes();
+            foreach (PokemonTypes pkt in Types)
+            {
+                if (pkt.TypeSlot == 1)
+                {
+                    type = pkt.TypeName;
+                    break;
+                }
+            }
+            return type;
+        }
+
+
+        public bool ThisPokemonHasASecondType()
+        {
+            bool hasSecond = false;
+            List<PokemonTypes> Types = FindPokemonTypes();
+            foreach (PokemonTypes pkt in Types)
+            {
+                if (pkt.TypeSlot == 2)
+                {
+                    hasSecond = true;
+                    break;
+                }
+            }
+            return hasSecond;
+        }
+
+        public string GetPokemonSecondaryType()
+        {
+            string type = null;
+            List<PokemonTypes> Types = FindPokemonTypes();
+            foreach (PokemonTypes pkt in Types)
+            {
+                if (pkt.TypeSlot == 2)
+                {
+                    type = pkt.TypeName;
+                    break;
+                }
+            }
+            return type;
         }
 
 
