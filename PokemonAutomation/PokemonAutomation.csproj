@@ -146,6 +146,7 @@
     <Compile Include="Layer2\UI\PokemonDetailPageModule.cs" />
     <Compile Include="Layer3\GenericSteps.cs" />
     <Compile Include="Layer3\PokemonAPI\Pokemon_EndpointSteps.cs" />
+    <Compile Include="Layer3\PokemonClasses\Pokemon_ClassSteps.cs" />
     <Compile Include="Layer3\PokemonDBPage\PokemonStats_PageSteps.cs" />
     <Compile Include="Layer4\API\Pokemon_Endpoint.feature.cs" />
     <Compile Include="Layer4\UI\PokemonStats_Page.feature.cs" />
@@ -154,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Layer4\API\Pokemon_Class.feature" />
     <None Include="Layer4\API\Pokemon_Endpoint.feature" />
     <None Include="Layer4\UI\PokemonStats_Page.feature" />
     <None Include="packages.config" />
