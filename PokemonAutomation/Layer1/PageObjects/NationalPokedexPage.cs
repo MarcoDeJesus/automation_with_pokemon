@@ -13,7 +13,8 @@ namespace PageObjects
         public WebElement Generation6Link = new WebElement("a[href='#gen-6']", "css");
         public WebElement Generation7Link = new WebElement("a[href='#gen-7']", "css");
         public WebElement Generation8Link = new WebElement("a[href='#gen-8']", "css");
-        public WebElement PokemonTile = new WebElement();
+        public WebElement PokemonTile = new WebElement("a.ent-name","css");
+        public WebElement SpecificPokemonTile = new WebElement();
 
 
         public WebElement ClickGeneration1Link()
@@ -63,27 +64,54 @@ namespace PageObjects
             return Generation8Link;
         }
 
+        public WebElement FindPokemonTiles()
+        {
+            PokemonTile.SearchForThisElement();
+            return PokemonTile;
+        }
+
         public WebElement MoveIntoViewToPokemonNamed(string Name)
         {
             string link = "/pokedex/" + Name.ToLower();
-            WebElement Tile = new WebElement("a.ent-name[href='" + link + "']", "css");
-            PokemonTile = Tile;
-            PokemonTile.SearchForThisElement();
-            if (PokemonTile.AllMatchingResults.Count == 1)
+            SpecificPokemonTile = new WebElement("a.ent-name[href='" + link + "']", "css");
+            SpecificPokemonTile.SearchForThisElement();
+            if (SpecificPokemonTile.AllMatchingResults.Count == 1)
             {
                 Actions actions = WebPage.NewActionsObject();
-                actions.MoveToElement(PokemonTile.AllMatchingResults[0]);
+                actions.MoveToElement(SpecificPokemonTile.AllMatchingResults[0]);
                 actions.Perform();
             }
-            return PokemonTile;
+            return SpecificPokemonTile;
         }
+
+        public WebElement MoveIntoViewToTile()
+        {
+            if (SpecificPokemonTile.AllMatchingResults.Count == 1)
+            {
+                Actions actions = WebPage.NewActionsObject();
+                actions.MoveToElement(SpecificPokemonTile.AllMatchingResults[0]);
+                actions.Perform();
+            }
+            return SpecificPokemonTile;
+        }
+
 
         public WebElement ClickPokemonTileNamed(string Name)
         {
             string link = "/pokedex/" + Name.ToLower();
-            WebElement Tile = new WebElement("a.ent-name[href='" + link + "']", "css");
-            PokemonTile = WebPage.ClickElement(Tile);
-            return PokemonTile;
+            SpecificPokemonTile = new WebElement("a.ent-name[href='" + link + "']", "css");
+            SpecificPokemonTile = WebPage.ClickElement(SpecificPokemonTile);
+            return SpecificPokemonTile;
         }
+
+        public WebElement ClickPokemonTile()
+        {
+            if (SpecificPokemonTile.AllMatchingResults.Count == 1)
+            {
+                SpecificPokemonTile.AllMatchingResults[0].Click();
+            }
+            return SpecificPokemonTile;
+        }
+
     }
 }
