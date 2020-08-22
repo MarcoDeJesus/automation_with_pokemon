@@ -6,41 +6,61 @@ namespace PageObjects
 {
     public class PokemonDetailPageStats
     {
-        public WebElement BaseStatHP = new WebElement("div[id^='tab-basic-']:nth-of-type(1)>div:nth-child(2)>div:nth-child(1) table.vitals-table tbody>tr:nth-child(1) td:nth-of-type(1)", "css");
-        public WebElement BaseStatAttack = new WebElement("div[id^='tab-basic-']:nth-of-type(1)>div:nth-child(2)>div:nth-child(1) table.vitals-table tbody>tr:nth-child(2) td:nth-of-type(1)", "css");
-        public WebElement BaseStatDefense = new WebElement("div[id^='tab-basic-']:nth-of-type(1)>div:nth-child(2)>div:nth-child(1) table.vitals-table tbody>tr:nth-child(3) td:nth-of-type(1)", "css");
-        public WebElement BaseStatSpAttack = new WebElement("div[id^='tab-basic-']:nth-of-type(1)>div:nth-child(2)>div:nth-child(1) table.vitals-table tbody>tr:nth-child(4) td:nth-of-type(1)", "css");
-        public WebElement BaseStatSpDefense = new WebElement("div[id^='tab-basic-']:nth-of-type(1)>div:nth-child(2)>div:nth-child(1) table.vitals-table tbody>tr:nth-child(5) td:nth-of-type(1)", "css");
-        public WebElement BaseStatSpeed = new WebElement("div[id^='tab-basic-']:nth-of-type(1)>div:nth-child(2)>div:nth-child(1) table.vitals-table tbody>tr:nth-child(6) td:nth-of-type(1)", "css");
+        public WebElement TabBasicContainer = new WebElement("div[class='tabs-panel active'][id^='tab-basic-']", "css");
+        public WebElement TabBasicContainer_StatsContainer = new WebElement("div:nth-child(2)>div:nth-child(1)", "css");
+        public WebElement TabBasicContainer_StatsContainer_BaseStatHP = new WebElement("table.vitals-table tbody>tr:nth-child(1) td:nth-of-type(1)", "css");
+        public WebElement TabBasicContainer_StatsContainer_BaseStatAttack = new WebElement("table.vitals-table tbody>tr:nth-child(2) td:nth-of-type(1)", "css");
+        public WebElement TabBasicContainer_StatsContainer_BaseStatDefense = new WebElement("table.vitals-table tbody>tr:nth-child(3) td:nth-of-type(1)", "css");
+        public WebElement TabBasicContainer_StatsContainer_BaseStatSpAttack = new WebElement("table.vitals-table tbody>tr:nth-child(4) td:nth-of-type(1)", "css");
+        public WebElement TabBasicContainer_StatsContainer_BaseStatSpDefense = new WebElement("table.vitals-table tbody>tr:nth-child(5) td:nth-of-type(1)", "css");
+        public WebElement TabBasicContainer_StatsContainer_BaseStatSpeed = new WebElement("table.vitals-table tbody>tr:nth-child(6) td:nth-of-type(1)", "css");
 
-        public void FindHPBaseStatusData()
+        public WebElement FindHPBaseStatusData()
         {
-            BaseStatHP.SearchForThisElement();
+            TabBasicContainer.SearchForThisElement();
+            TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
+            TabBasicContainer_StatsContainer_BaseStatHP = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatHP);
+            return TabBasicContainer_StatsContainer_BaseStatHP;
         }
 
-        public void FindAttackBaseStatusData()
+        public WebElement FindAttackBaseStatusData()
         {
-            BaseStatAttack.SearchForThisElement();
+            TabBasicContainer.SearchForThisElement();
+            TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
+            TabBasicContainer_StatsContainer_BaseStatAttack = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatAttack);
+            return TabBasicContainer_StatsContainer_BaseStatAttack;
         }
 
-        public void FindDefenseBaseStatusData()
+        public WebElement FindDefenseBaseStatusData()
         {
-            BaseStatDefense.SearchForThisElement();
+            TabBasicContainer.SearchForThisElement();
+            TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
+            TabBasicContainer_StatsContainer_BaseStatDefense = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatDefense);
+            return TabBasicContainer_StatsContainer_BaseStatDefense;
         }
 
-        public void FindSpAttackBaseStatusData()
+        public WebElement FindSpAttackBaseStatusData()
         {
-            BaseStatSpAttack.SearchForThisElement();
+            TabBasicContainer.SearchForThisElement();
+            TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
+            TabBasicContainer_StatsContainer_BaseStatSpAttack = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatSpAttack);
+            return TabBasicContainer_StatsContainer_BaseStatSpAttack;
         }
 
-        public void FindSpDefenseBaseStatusData()
+        public WebElement FindSpDefenseBaseStatusData()
         {
-            BaseStatSpDefense.SearchForThisElement();
+            TabBasicContainer.SearchForThisElement();
+            TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
+            TabBasicContainer_StatsContainer_BaseStatSpDefense = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatSpDefense);
+            return TabBasicContainer_StatsContainer_BaseStatSpDefense;
         }
 
-        public void FindSpeedBaseStatusData()
+        public WebElement FindSpeedBaseStatusData()
         {
-            BaseStatSpeed.SearchForThisElement();
+            TabBasicContainer.SearchForThisElement();
+            TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
+            TabBasicContainer_StatsContainer_BaseStatSpeed = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatSpeed);
+            return TabBasicContainer_StatsContainer_BaseStatSpeed;
         }
 
 

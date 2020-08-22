@@ -53,9 +53,9 @@ namespace AutomationProject.Layer2.UI
             PokemonDetailPageStats StatsObject = new PokemonDetailPageStats();
             StatsObject.FindHPBaseStatusData();
             string hp = null;
-            if (StatsObject.BaseStatHP.AllMatchingResults.Count == 1)
+            if (StatsObject.TabBasicContainer_StatsContainer_BaseStatHP.AllMatchingResults.Count == 1)
             {
-                hp = StatsObject.BaseStatHP.AllMatchingResults[0].Text;
+                hp = StatsObject.TabBasicContainer_StatsContainer_BaseStatHP.AllMatchingResults[0].Text;
             }
             return hp;
         }
@@ -65,9 +65,9 @@ namespace AutomationProject.Layer2.UI
             PokemonDetailPageStats StatsObject = new PokemonDetailPageStats();
             StatsObject.FindAttackBaseStatusData();
             string att = null;
-            if (StatsObject.BaseStatAttack.AllMatchingResults.Count == 1)
+            if (StatsObject.TabBasicContainer_StatsContainer_BaseStatAttack.AllMatchingResults.Count == 1)
             {
-                att = StatsObject.BaseStatAttack.AllMatchingResults[0].Text;
+                att = StatsObject.TabBasicContainer_StatsContainer_BaseStatAttack.AllMatchingResults[0].Text;
             }
             return att;
         }
@@ -77,9 +77,9 @@ namespace AutomationProject.Layer2.UI
             PokemonDetailPageStats StatsObject = new PokemonDetailPageStats();
             StatsObject.FindDefenseBaseStatusData();
             string def = null;
-            if (StatsObject.BaseStatDefense.AllMatchingResults.Count == 1)
+            if (StatsObject.TabBasicContainer_StatsContainer_BaseStatDefense.AllMatchingResults.Count == 1)
             {
-                def = StatsObject.BaseStatDefense.AllMatchingResults[0].Text;
+                def = StatsObject.TabBasicContainer_StatsContainer_BaseStatDefense.AllMatchingResults[0].Text;
             }
             return def;
         }
@@ -89,9 +89,9 @@ namespace AutomationProject.Layer2.UI
             PokemonDetailPageStats StatsObject = new PokemonDetailPageStats();
             StatsObject.FindSpAttackBaseStatusData();
             string spa = null;
-            if (StatsObject.BaseStatSpAttack.AllMatchingResults.Count == 1)
+            if (StatsObject.TabBasicContainer_StatsContainer_BaseStatSpAttack.AllMatchingResults.Count == 1)
             {
-                spa = StatsObject.BaseStatSpAttack.AllMatchingResults[0].Text;
+                spa = StatsObject.TabBasicContainer_StatsContainer_BaseStatSpAttack.AllMatchingResults[0].Text;
             }
             return spa;
         }
@@ -101,9 +101,9 @@ namespace AutomationProject.Layer2.UI
             PokemonDetailPageStats StatsObject = new PokemonDetailPageStats();
             StatsObject.FindSpDefenseBaseStatusData();
             string spd = null;
-            if (StatsObject.BaseStatSpDefense.AllMatchingResults.Count == 1)
+            if (StatsObject.TabBasicContainer_StatsContainer_BaseStatSpDefense.AllMatchingResults.Count == 1)
             {
-                spd = StatsObject.BaseStatSpDefense.AllMatchingResults[0].Text;
+                spd = StatsObject.TabBasicContainer_StatsContainer_BaseStatSpDefense.AllMatchingResults[0].Text;
             }
             return spd;
         }
@@ -113,9 +113,9 @@ namespace AutomationProject.Layer2.UI
             PokemonDetailPageStats StatsObject = new PokemonDetailPageStats();
             StatsObject.FindSpeedBaseStatusData();
             string spe = null;
-            if (StatsObject.BaseStatSpeed.AllMatchingResults.Count == 1)
+            if (StatsObject.TabBasicContainer_StatsContainer_BaseStatSpeed.AllMatchingResults.Count == 1)
             {
-                spe = StatsObject.BaseStatSpeed.AllMatchingResults[0].Text;
+                spe = StatsObject.TabBasicContainer_StatsContainer_BaseStatSpeed.AllMatchingResults[0].Text;
             }
             return spe;
         }
