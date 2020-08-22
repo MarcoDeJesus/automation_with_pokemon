@@ -82,7 +82,19 @@ namespace TestsSteps
             string nameAPI = TestPokemon.Name;
             Assert.IsTrue(name.Equals(nameAPI));
         }
-        
+
+
+        [Then(@"the Pokemon Pokedex entry should display the correct National Dex")]
+        public void ThenThePokemonPokedexEntryShouldDisplayTheCorrectNationalDex()
+        {
+            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
+            PokemonDetailPageModule DetailMod = new PokemonDetailPageModule();
+            string number = DetailMod.FindPokemonNationalNumber();
+            string numberAPI = TestPokemon.Number.ToString();
+            Assert.IsTrue(number.Equals(numberAPI));
+        }
+
+
         [Then(@"the Pokemon Pokedex entry should display a correct primary type")]
         public void ThenThePokemonPokedexEntryShouldDisplayACorrectPrimaryType()
         {

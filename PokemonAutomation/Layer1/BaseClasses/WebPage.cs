@@ -3,7 +3,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
 using System;
-
+using System.Collections.Generic;
 
 namespace PageObjects
 {
@@ -116,7 +116,6 @@ namespace PageObjects
             Actions actions = new Actions(WebDriver);
             return actions;
         }
-
 
     }
 

@@ -7,13 +7,17 @@ namespace PageObjects
     public class PokemonDetailPagePokedex
     {
         public WebElement PokemonNameHeader = new WebElement("main[id='main']>h1","css");
-        public WebElement NationalDexNumber = new WebElement("div[id^='tab-basic-']:nth-of-type(1)>div:nth-child(1)>div:nth-child(2)>h2+table.vitals-table>tbody>tr:nth-child(1)>td", "css");
-        public WebElement PokemonTypes = new WebElement("div[id^='tab-basic-']:nth-of-type(1)>div:nth-child(1)>div:nth-child(2)>h2+table.vitals-table>tbody>tr:nth-child(2)>td>a", "css");
+        public WebElement TabBasicContainer = new WebElement("div[class='tabs-panel active'][id^='tab-basic-']", "css");
+        public WebElement TabBasicContainer_DataContainer = new WebElement("div:nth-child(1)>div[class$='text-center']+div:nth-child(2)>h2+table.vitals-table", "css");
+        public WebElement TabBasicContainer_DataContainer_NationalDexNumber = new WebElement("tbody>tr:nth-child(1) >td", "css");
+        public WebElement TabBasicContainer_DataContainer_PokemonTypes = new WebElement("tbody>tr:nth-child(2)>td>a", "css");
 
         public WebElement FindNationalDexNumberLabel()
         {
-            NationalDexNumber.SearchForThisElement();
-            return NationalDexNumber;
+            TabBasicContainer.SearchForThisElement();
+            TabBasicContainer_DataContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_DataContainer);
+            TabBasicContainer_DataContainer_NationalDexNumber = TabBasicContainer_DataContainer.SearchForAnElementInsideThisElement(TabBasicContainer_DataContainer_NationalDexNumber);
+            return TabBasicContainer_DataContainer_NationalDexNumber;
         }
 
         public WebElement FindPokemonNameHeaderLabel()
@@ -24,8 +28,10 @@ namespace PageObjects
 
         public WebElement FindPokemonTypesLabels()
         {
-            PokemonTypes.SearchForThisElement();
-            return PokemonTypes;
+            TabBasicContainer.SearchForThisElement();
+            TabBasicContainer_DataContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_DataContainer);
+            TabBasicContainer_DataContainer_PokemonTypes = TabBasicContainer_DataContainer.SearchForAnElementInsideThisElement(TabBasicContainer_DataContainer_PokemonTypes);
+            return TabBasicContainer_DataContainer_PokemonTypes;
         }
 
     }

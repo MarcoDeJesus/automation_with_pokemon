@@ -130,27 +130,30 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("the Pokemon Pokedex entry should display the pokemon name in the header label", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
-  testRunner.And("the Pokemon Pokedex entry should display a correct primary type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the Pokemon Pokedex entry should display the correct National Dex", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
-  testRunner.And("the Pokemon Pokedex entry should display a correct secondary type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the Pokemon Pokedex entry should display a correct primary type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 15
-  testRunner.And("the Pokemon Pokedex entry should display a correct Base HP stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the Pokemon Pokedex entry should display a correct secondary type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 16
-  testRunner.And("the Pokemon Pokedex entry should display a correct Base Attack stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the Pokemon Pokedex entry should display a correct Base HP stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 17
-  testRunner.And("the Pokemon Pokedex entry should display a correct Base Defense stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the Pokemon Pokedex entry should display a correct Base Attack stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 18
-  testRunner.And("the Pokemon Pokedex entry should display a correct Base Sp. Attack stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the Pokemon Pokedex entry should display a correct Base Defense stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 19
-  testRunner.And("the Pokemon Pokedex entry should display a correct Base Sp. Defense stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the Pokemon Pokedex entry should display a correct Base Sp. Attack stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 20
+  testRunner.And("the Pokemon Pokedex entry should display a correct Base Sp. Defense stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 21
   testRunner.And("the Pokemon Pokedex entry should display a correct Base Speed stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -169,7 +172,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("name", name);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The Data from Pokemon API should match the Pokemon DataBase detail page - With Di" +
                     "rect Link", null, tagsOfScenario, argumentsOfScenario);
-#line 29
+#line 30
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -189,37 +192,40 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 30
+#line 31
  testRunner.Given(string.Format("that the test user has selected a the \'{0}\' Pokemon for this test", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 31
+#line 32
  testRunner.When("the user loads the Pokemon DB Detail page for the selected Pokemon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 32
+#line 33
  testRunner.Then("the Pokemon Pokedex entry should display the pokemon name in the header label", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 33
-  testRunner.And("the Pokemon Pokedex entry should display a correct primary type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
 #line 34
-  testRunner.And("the Pokemon Pokedex entry should display a correct secondary type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the Pokemon Pokedex entry should display the correct National Dex", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 35
-  testRunner.And("the Pokemon Pokedex entry should display a correct Base HP stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the Pokemon Pokedex entry should display a correct primary type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 36
-  testRunner.And("the Pokemon Pokedex entry should display a correct Base Attack stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the Pokemon Pokedex entry should display a correct secondary type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 37
-  testRunner.And("the Pokemon Pokedex entry should display a correct Base Defense stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the Pokemon Pokedex entry should display a correct Base HP stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 38
-  testRunner.And("the Pokemon Pokedex entry should display a correct Base Sp. Attack stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the Pokemon Pokedex entry should display a correct Base Attack stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 39
-  testRunner.And("the Pokemon Pokedex entry should display a correct Base Sp. Defense stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("the Pokemon Pokedex entry should display a correct Base Defense stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 40
+  testRunner.And("the Pokemon Pokedex entry should display a correct Base Sp. Attack stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 41
+  testRunner.And("the Pokemon Pokedex entry should display a correct Base Sp. Defense stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 42
   testRunner.And("the Pokemon Pokedex entry should display a correct Base Speed stat value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
