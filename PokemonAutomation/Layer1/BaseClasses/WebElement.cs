@@ -26,6 +26,7 @@ namespace PageObjects
 
         public void SearchForThisElement()
         {
+            AllMatchingResults.Clear();
             switch (SelectorMethod.ToLower())
             {
                 case "id":
