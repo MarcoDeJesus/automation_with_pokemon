@@ -41,23 +41,6 @@ namespace Features
 
 
 
-        private void GeneratePokemonFromFactory(string name)
-        {
-            PokemonFactory pkf = new PokemonFactory(name);
-            SetBuildsData(pkf);
-            IsShiny = false;
-            SetHPIVs(0);
-            SetAttackIVs(0);
-            SetDefenseIVs(0);
-            SetSpecialAttackIVs(0);
-            SetSpecialDefenseIVs(0);
-            SetSpeedIVs(0);
-            AssignAbility(true, false, false);
-            HasPokeRus = false;
-            PokeRusIsCured = false;
-        }
-
-
         public Pokemon(string name)
         {
             PokemonFactory pkf = new PokemonFactory(name);
