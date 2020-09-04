@@ -76,6 +76,7 @@ namespace PageObjects
 
         public WebElement SearchForAnElementInsideThisElement(WebElement cwe)
         {
+            AllMatchingResults.Clear();
             string _SelectorMethod = cwe.SelectorMethod;
             string _Selector = cwe.Selector;
             IWebElement _ipw = AllMatchingResults[0];

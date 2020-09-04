@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Schema;
 
-namespace APIModules
+namespace Features
 {
-    class Pokemon
+    public class Pokemon
     {
         public bool IsShiny { get; private set; }
         public int IVsHP { get; private set; }
@@ -40,18 +40,11 @@ namespace APIModules
         public int BaseSpeed { get; private set; }
 
 
-        public Pokemon(PokemonFactory pkmn)
+
+        private void GeneratePokemonFromFactory(string name)
         {
-            Name = pkmn.Name;
-            Number = pkmn.Number;
-            PokemonTypes = pkmn.PokemonTypes;
-            PokemonAbilities = pkmn.PokemonAbilities;
-            BaseHP = pkmn.BaseHP;
-            BaseAttack = pkmn.BaseAttack;
-            BaseDefense = pkmn.BaseDefense;
-            BaseSpecialAttack = pkmn.BaseSpecialAttack;
-            BaseSpecialDefense = pkmn.BaseSpecialDefense;
-            BaseSpeed = pkmn.BaseSpeed;
+            PokemonFactory pkf = new PokemonFactory(name);
+            SetBuildsData(pkf);
             IsShiny = false;
             SetHPIVs(0);
             SetAttackIVs(0);
@@ -63,19 +56,29 @@ namespace APIModules
             HasPokeRus = false;
             PokeRusIsCured = false;
         }
-        
-        public Pokemon(PokemonFactory pkmn, bool shiny)
+
+
+        public Pokemon(string name)
         {
-            Name = pkmn.Name;
-            Number = pkmn.Number;
-            PokemonTypes = pkmn.PokemonTypes;
-            PokemonAbilities = pkmn.PokemonAbilities;
-            BaseHP = pkmn.BaseHP;
-            BaseAttack = pkmn.BaseAttack;
-            BaseDefense = pkmn.BaseDefense;
-            BaseSpecialAttack = pkmn.BaseSpecialAttack;
-            BaseSpecialDefense = pkmn.BaseSpecialDefense;
-            BaseSpeed = pkmn.BaseSpeed;
+            PokemonFactory pkf = new PokemonFactory(name);
+            SetBuildsData(pkf);
+            IsShiny = false;
+            SetHPIVs(0);
+            SetAttackIVs(0);
+            SetDefenseIVs(0);
+            SetSpecialAttackIVs(0);
+            SetSpecialDefenseIVs(0);
+            SetSpeedIVs(0);
+            AssignAbility(true, false, false);
+            HasPokeRus = false;
+            PokeRusIsCured = false;
+        }
+
+
+        public Pokemon(string name, bool shiny)
+        {
+            PokemonFactory pkf = new PokemonFactory(name);
+            SetBuildsData(pkf);
             IsShiny = shiny;
             SetHPIVs(0);
             SetAttackIVs(0);
@@ -89,18 +92,10 @@ namespace APIModules
         }
 
 
-        public Pokemon(PokemonFactory pkmn, bool primary, bool secondary, bool hidden)
+        public Pokemon(string name, bool primary, bool secondary, bool hidden)
         {
-            Name = pkmn.Name;
-            Number = pkmn.Number;
-            PokemonTypes = pkmn.PokemonTypes;
-            PokemonAbilities = pkmn.PokemonAbilities;
-            BaseHP = pkmn.BaseHP;
-            BaseAttack = pkmn.BaseAttack;
-            BaseDefense = pkmn.BaseDefense;
-            BaseSpecialAttack = pkmn.BaseSpecialAttack;
-            BaseSpecialDefense = pkmn.BaseSpecialDefense;
-            BaseSpeed = pkmn.BaseSpeed;
+            PokemonFactory pkf = new PokemonFactory(name);
+            SetBuildsData(pkf);
             IsShiny = false;
             SetHPIVs(0);
             SetAttackIVs(0);
@@ -113,18 +108,10 @@ namespace APIModules
             PokeRusIsCured = false;
         }
 
-        public Pokemon(PokemonFactory pkmn, bool shiny, bool primary, bool secondary, bool hidden)
+        public Pokemon(string name, bool shiny, bool primary, bool secondary, bool hidden)
         {
-            Name = pkmn.Name;
-            Number = pkmn.Number;
-            PokemonTypes = pkmn.PokemonTypes;
-            PokemonAbilities = pkmn.PokemonAbilities;
-            BaseHP = pkmn.BaseHP;
-            BaseAttack = pkmn.BaseAttack;
-            BaseDefense = pkmn.BaseDefense;
-            BaseSpecialAttack = pkmn.BaseSpecialAttack;
-            BaseSpecialDefense = pkmn.BaseSpecialDefense;
-            BaseSpeed = pkmn.BaseSpeed;
+            PokemonFactory pkf = new PokemonFactory(name);
+            SetBuildsData(pkf);
             IsShiny = shiny;
             SetHPIVs(0);
             SetAttackIVs(0);
@@ -138,18 +125,10 @@ namespace APIModules
         }
 
 
-        public Pokemon(PokemonFactory pkmn, int hp, int attack, int def, int spatt, int spdef, int spe)
+        public Pokemon(string name, int hp, int attack, int def, int spatt, int spdef, int spe)
         {
-            Name = pkmn.Name;
-            Number = pkmn.Number;
-            PokemonTypes = pkmn.PokemonTypes;
-            PokemonAbilities = pkmn.PokemonAbilities;
-            BaseHP = pkmn.BaseHP;
-            BaseAttack = pkmn.BaseAttack;
-            BaseDefense = pkmn.BaseDefense;
-            BaseSpecialAttack = pkmn.BaseSpecialAttack;
-            BaseSpecialDefense = pkmn.BaseSpecialDefense;
-            BaseSpeed = pkmn.BaseSpeed;
+            PokemonFactory pkf = new PokemonFactory(name);
+            SetBuildsData(pkf);
             IsShiny = false;
             SetHPIVs(hp);
             SetAttackIVs(attack);
@@ -162,18 +141,10 @@ namespace APIModules
             PokeRusIsCured = false;
         }
 
-        public Pokemon(PokemonFactory pkmn, int hp, int attack, int def, int spatt, int spdef, int spe, bool primary, bool secondary, bool hidden)
+        public Pokemon(string name, int hp, int attack, int def, int spatt, int spdef, int spe, bool primary, bool secondary, bool hidden)
         {
-            Name = pkmn.Name;
-            Number = pkmn.Number;
-            PokemonTypes = pkmn.PokemonTypes;
-            PokemonAbilities = pkmn.PokemonAbilities;
-            BaseHP = pkmn.BaseHP;
-            BaseAttack = pkmn.BaseAttack;
-            BaseDefense = pkmn.BaseDefense;
-            BaseSpecialAttack = pkmn.BaseSpecialAttack;
-            BaseSpecialDefense = pkmn.BaseSpecialDefense;
-            BaseSpeed = pkmn.BaseSpeed;
+            PokemonFactory pkf = new PokemonFactory(name);
+            SetBuildsData(pkf);
             IsShiny = false;
             SetHPIVs(hp);
             SetAttackIVs(attack);
@@ -186,18 +157,10 @@ namespace APIModules
             PokeRusIsCured = false;
         }
 
-        public Pokemon(PokemonFactory pkmn, bool shiny, int hp, int attack, int def, int spatt, int spdef, int spe)
+        public Pokemon(string name, bool shiny, int hp, int attack, int def, int spatt, int spdef, int spe)
         {
-            Name = pkmn.Name;
-            Number = pkmn.Number;
-            PokemonTypes = pkmn.PokemonTypes;
-            PokemonAbilities = pkmn.PokemonAbilities;
-            BaseHP = pkmn.BaseHP;
-            BaseAttack = pkmn.BaseAttack;
-            BaseDefense = pkmn.BaseDefense;
-            BaseSpecialAttack = pkmn.BaseSpecialAttack;
-            BaseSpecialDefense = pkmn.BaseSpecialDefense;
-            BaseSpeed = pkmn.BaseSpeed;
+            PokemonFactory pkf = new PokemonFactory(name);
+            SetBuildsData(pkf);
             IsShiny = shiny;
             SetHPIVs(hp);
             SetAttackIVs(attack);
@@ -210,18 +173,10 @@ namespace APIModules
             PokeRusIsCured = false;
         }
 
-        public Pokemon(PokemonFactory pkmn, bool shiny, int hp, int attack, int def, int spatt, int spdef, int spe, bool primary, bool secondary, bool hidden)
+        public Pokemon(string name, bool shiny, int hp, int attack, int def, int spatt, int spdef, int spe, bool primary, bool secondary, bool hidden)
         {
-            Name = pkmn.Name;
-            Number = pkmn.Number;
-            PokemonTypes = pkmn.PokemonTypes;
-            PokemonAbilities = pkmn.PokemonAbilities;
-            BaseHP = pkmn.BaseHP;
-            BaseAttack = pkmn.BaseAttack;
-            BaseDefense = pkmn.BaseDefense;
-            BaseSpecialAttack = pkmn.BaseSpecialAttack;
-            BaseSpecialDefense = pkmn.BaseSpecialDefense;
-            BaseSpeed = pkmn.BaseSpeed;
+            PokemonFactory pkf = new PokemonFactory(name);
+            SetBuildsData(pkf);
             IsShiny = shiny;
             SetHPIVs(hp);
             SetAttackIVs(attack);
@@ -232,6 +187,20 @@ namespace APIModules
             AssignAbility(primary, secondary, hidden);
             HasPokeRus = false;
             PokeRusIsCured = false;
+        }
+
+        private void SetBuildsData(PokemonFactory pkf)
+        {
+            Name = pkf.Name;
+            Number = pkf.Number;
+            PokemonTypes = pkf.PokemonTypes;
+            PokemonAbilities = pkf.PokemonAbilities;
+            BaseHP = pkf.BaseHP;
+            BaseAttack = pkf.BaseAttack;
+            BaseDefense = pkf.BaseDefense;
+            BaseSpecialAttack = pkf.BaseSpecialAttack;
+            BaseSpecialDefense = pkf.BaseSpecialDefense;
+            BaseSpeed = pkf.BaseSpeed;
         }
 
 

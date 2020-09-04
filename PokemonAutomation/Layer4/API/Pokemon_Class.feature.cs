@@ -157,7 +157,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("that the test user has selects \'Mewtwo\' as the test Pokemon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 20
- testRunner.And("that the test user generates a Pokemon instance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("that the test user gets a test Pokemon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 21
  testRunner.When("the test user adds \'253\' EV points to the HP stat", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -202,7 +202,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("that the test user has selects \'Mewtwo\' as the test Pokemon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 27
- testRunner.And("that the test user generates a Pokemon instance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("that the test user gets a test Pokemon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 28
  testRunner.And("that the test user adds \'200\' EV points to the HP stat", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -248,7 +248,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("that the test user has selects \'Mewtwo\' as the test Pokemon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 35
- testRunner.And("that the test user generates a Pokemon instance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("that the test user gets a test Pokemon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 36
  testRunner.And("that the test user adds \'100\' EV points to the HP stat", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -294,7 +294,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("that the test user has selects \'Mewtwo\' as the test Pokemon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 43
- testRunner.And("that the test user generates a Pokemon instance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("that the test user gets a test Pokemon", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 44
  testRunner.And("that the test user adds \'100\' EV points to the HP stat", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

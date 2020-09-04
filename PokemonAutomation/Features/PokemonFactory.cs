@@ -6,9 +6,9 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using PokemonClasses;
 
-namespace APIModules
+namespace Features
 {
-    class PokemonFactory
+    public class PokemonFactory
     {
         public int Number;
         public string Name;

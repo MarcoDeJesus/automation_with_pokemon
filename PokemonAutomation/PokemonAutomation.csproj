@@ -139,13 +139,14 @@
     <Compile Include="Layer1\PageObjects\PokemonDetailPageNavigationBar.cs" />
     <Compile Include="Layer1\PageObjects\PokemonDetailPagePokedex.cs" />
     <Compile Include="Layer1\PageObjects\PokemonDetailPageStats.cs" />
-    <Compile Include="Layer2\API\Pokemon.cs" />
-    <Compile Include="Layer2\API\PokemonFactory.cs" />
+    <Compile Include="Features\Pokemon.cs" />
+    <Compile Include="Features\PokemonFactory.cs" />
+    <Compile Include="Layer2\API\PokemonFactoryModule.cs" />
     <Compile Include="Layer2\UI\NationalPokedexPageModule.cs" />
     <Compile Include="Layer2\UI\PokemonDBHomeModule.cs" />
     <Compile Include="Layer2\UI\PokemonDetailPageModule.cs" />
     <Compile Include="Layer3\GenericSteps.cs" />
-    <Compile Include="Layer3\PokemonAPI\Pokemon_EndpointSteps.cs" />
+    <Compile Include="Layer3\PokemonClasses\Pokemon_EndpointSteps.cs" />
     <Compile Include="Layer3\PokemonClasses\Pokemon_ClassSteps.cs" />
     <Compile Include="Layer3\PokemonDBPage\PokemonStats_PageSteps.cs" />
     <Compile Include="Layer4\API\Pokemon_Endpoint.feature.cs" />
@@ -160,6 +161,7 @@
     <None Include="Layer4\UI\PokemonStats_Page.feature" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

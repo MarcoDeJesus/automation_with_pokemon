@@ -1,6 +1,5 @@
-﻿using APIModules;
-using NUnit.Framework;
-using PokemonClasses;
+﻿using NUnit.Framework;
+using Features;
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
 

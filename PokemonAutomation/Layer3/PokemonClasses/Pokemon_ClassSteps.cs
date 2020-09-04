@@ -1,6 +1,5 @@
-﻿using APIModules;
+﻿using Features;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
 
@@ -14,45 +13,42 @@ namespace PokemonAutomation.Layer3.PokemonClasses
         [Given(@"that the test user has selects '(.*)' as the test Pokemon")]
         public static void ThatTheTestUserHasSelectsAsTheTestPokemon(string p0)
         {
-            if (TestContextData.ContainsKey("TestPokemon"))
+            if (TestContextData.ContainsKey("TestPokemonName"))
             {
-                TestContextData.Remove("TestPokemon");
+                TestContextData.Remove("TestPokemonName");
             }
-            PokemonFactory TestPokemon = new PokemonFactory(p0.ToLower());
+            string TestPokemonName = p0.ToLower();
+            TestContextData.Add("TestPokemonName", TestPokemonName);
+        }
+
+
+        [Given(@"that the test user gets a test Pokemon")]
+        public void ThatTheTestUserGetsATestPokemon()
+        {
+            string testPokemonName = TestContextData["TestPokemonName"];
+            Pokemon TestPokemon = new Pokemon(testPokemonName);
             TestContextData.Add("TestPokemon", TestPokemon);
         }
 
-
-        [Given(@"that the test user generates a Pokemon instance")]
-        public static void TheTestUserGeneratesAnInstance()
-        {
-            if (TestContextData.ContainsKey("TestInstance"))
-            {
-                TestContextData.Remove("TestInstance");
-            }
-            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
-            Pokemon Shiny = new Pokemon(TestPokemon);
-            TestContextData.Add("TestInstance", Shiny);
-        }
 
 
         [When(@"the test user generates an instance using only the IsShiny flag as '(.*)'")]
         public static void TheTestUserGeneratesAnInstanceUsingOnlyTheIsShinyFlagAs(string p0)
         {
-            if (TestContextData.ContainsKey("TestInstance"))
+            if (TestContextData.ContainsKey("TestPokemon"))
             {
-                TestContextData.Remove("TestInstance");
+                TestContextData.Remove("TestPokemon");
             }
-            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
+            string testPokemonName = TestContextData["TestPokemonName"];
             switch (p0)
             {
                 case "enabled":
-                    Pokemon Shiny = new Pokemon(TestPokemon, true);
-                    TestContextData.Add("TestInstance", Shiny);
+                    Pokemon Shiny = new Pokemon(testPokemonName, true);
+                    TestContextData.Add("TestPokemon", Shiny);
                     break;
                 case "disabled":
-                    Pokemon NotShiny = new Pokemon(TestPokemon, false);
-                    TestContextData.Add("TestInstance", NotShiny);
+                    Pokemon NotShiny = new Pokemon(testPokemonName, false);
+                    TestContextData.Add("TestPokemon", NotShiny);
                     break;
             }
         }
@@ -61,32 +57,32 @@ namespace PokemonAutomation.Layer3.PokemonClasses
         [When(@"the test user adds '(.*)' EV points to the HP stat")]
         public void TheTestUserAddsEVPointsToTheHPStat(int p0)
         {
-            Pokemon TestInstance = TestContextData["TestInstance"];
+            Pokemon TestInstance = TestContextData["TestPokemon"];
             TestInstance.AddEVPointsToHP(p0);
-            if (TestContextData.ContainsKey("TestInstance"))
+            if (TestContextData.ContainsKey("TestPokemon"))
             {
-                TestContextData.Remove("TestInstance");
+                TestContextData.Remove("TestPokemon");
             }
-            TestContextData.Add("TestInstance", TestInstance);
+            TestContextData.Add("TestPokemon", TestInstance);
         }
 
         [When(@"the test user resets the Pokemon EVs")]
         public void WhenTheTestUserResetsThePokemonEVs()
         {
-            Pokemon TestInstance = TestContextData["TestInstance"];
+            Pokemon TestInstance = TestContextData["TestPokemon"];
             TestInstance.ResetEVs();
-            if (TestContextData.ContainsKey("TestInstance"))
+            if (TestContextData.ContainsKey("TestPokemon"))
             {
-                TestContextData.Remove("TestInstance");
+                TestContextData.Remove("TestPokemon");
             }
-            TestContextData.Add("TestInstance", TestInstance);
+            TestContextData.Add("TestPokemon", TestInstance);
         }
 
 
         [Then(@"HP stat should have '(.*)' EV points")]
         public void ThenHPStatShouldHaveEVPoints(int p0)
         {
-            Pokemon TestInstance = TestContextData["TestInstance"];
+            Pokemon TestInstance = TestContextData["TestPokemon"];
             int points = TestInstance.EVsHP;
             Assert.True(p0.Equals(points));
         }
@@ -96,7 +92,7 @@ namespace PokemonAutomation.Layer3.PokemonClasses
         [Then(@"the result Pokemon should '(.*)' be shiny")]
         public static void TheResultPokemonShouldBeShiny(string shiny)
         {
-            Pokemon TestInstance = TestContextData["TestInstance"];
+            Pokemon TestInstance = TestContextData["TestPokemon"];
             bool IsShiny = TestInstance.IsShiny;
             switch (shiny)
             {
