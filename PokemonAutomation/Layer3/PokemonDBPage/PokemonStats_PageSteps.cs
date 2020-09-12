@@ -12,25 +12,24 @@ namespace TestsSteps
     [Binding]
     public class PokemonStats_PageSteps
     {
-        public static Dictionary<string, dynamic> TestContextData = new Dictionary<string, dynamic>();
 
         [Given(@"that the test user has selected a the '(.*)' Pokemon for this test")]
         public void GivenThatTheTestUserHasSelectedAThePokemonForThisTest(string name)
         {
-            if (TestContextData.ContainsKey("PokemonName"))
+            if (GenericSteps.TestContextData.ContainsKey("PokemonName"))
             {
-                TestContextData.Remove("PokemonName");
+                GenericSteps.TestContextData.Remove("PokemonName");
             }
-            if (TestContextData.ContainsKey("TestPokemon"))
+            if (GenericSteps.TestContextData.ContainsKey("TestPokemon"))
             {
-                TestContextData.Remove("TestPokemon");
+                GenericSteps.TestContextData.Remove("TestPokemon");
             }
             name = name.ToLower();
-            TestContextData.Add("PokemonName", name);
+            GenericSteps.TestContextData.Add("PokemonName", name);
             Pokemon_EndpointSteps.GivenThatTheUserHasSelectedThePokemon(name);
             Pokemon_EndpointSteps.WhenTheTestUserQueriesThePokemonAPIWithTheSelectedPokemon();
-            PokemonFactory TestPokemon = Pokemon_EndpointSteps.TestContextData["TestPokemon"];
-            TestContextData.Add("TestPokemon", TestPokemon);
+            PokemonFactory TestPokemon = GenericSteps.TestContextData["TestPokemon"];
+            GenericSteps.TestContextData.Add("TestPokemon", TestPokemon);
 
         }
         
@@ -55,7 +54,7 @@ namespace TestsSteps
         [When(@"the user loads the Pokemon DB Detail page for the selected Pokemon")]
         public void WhenTheUserLoadsThePokemonDBDetailPageForTheSelectedPokemon()
         {
-            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
+            PokemonFactory TestPokemon = GenericSteps.TestContextData["TestPokemon"];
             string url = "https://pokemondb.net/pokedex/"+TestPokemon.Name;
             WebPage.OpenWebBrowser("gc");
             WebPage.MaximizeWindow();
@@ -68,7 +67,7 @@ namespace TestsSteps
         [When(@"the user selects the Test Pokemon from the list of Pokemon")]
         public void WhenTheUserSelectsTheTestPokemonFromTheListOfPokemon()
         {
-            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
+            PokemonFactory TestPokemon = GenericSteps.TestContextData["TestPokemon"];
             NationalPokedexPageModule NatModule = new NationalPokedexPageModule();
             NatModule.UserClicksPokemonFromTheList(TestPokemon.Name.ToLower());
         }
@@ -76,7 +75,7 @@ namespace TestsSteps
         [Then(@"the Pokemon Pokedex entry should display the pokemon name in the header label")]
         public void ThenThePokemonPokedexEntryShouldDisplayThePokemonNameInTheHeaderLabel()
         {
-            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
+            PokemonFactory TestPokemon = GenericSteps.TestContextData["TestPokemon"];
             PokemonDetailPageModule DetailMod = new PokemonDetailPageModule();
             string name = DetailMod.FindPokemonNameInPage().ToLower();
             string nameAPI = TestPokemon.Name;
@@ -87,7 +86,7 @@ namespace TestsSteps
         [Then(@"the Pokemon Pokedex entry should display the correct National Dex")]
         public void ThenThePokemonPokedexEntryShouldDisplayTheCorrectNationalDex()
         {
-            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
+            PokemonFactory TestPokemon = GenericSteps.TestContextData["TestPokemon"];
             PokemonDetailPageModule DetailMod = new PokemonDetailPageModule();
             string number = DetailMod.FindPokemonNationalNumber();
             string numberAPI = TestPokemon.Number.ToString();
@@ -98,7 +97,7 @@ namespace TestsSteps
         [Then(@"the Pokemon Pokedex entry should display a correct primary type")]
         public void ThenThePokemonPokedexEntryShouldDisplayACorrectPrimaryType()
         {
-            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
+            PokemonFactory TestPokemon = GenericSteps.TestContextData["TestPokemon"];
             PokemonTypes PrimaryTypeObject = TestPokemon.GetThisPokemonPrimaryType();
             string primaryAPI = PrimaryTypeObject.TypeName.ToLower();
             PokemonDetailPageModule DetailMod = new PokemonDetailPageModule();
@@ -109,7 +108,7 @@ namespace TestsSteps
         [Then(@"the Pokemon Pokedex entry should display a correct secondary type")]
         public void ThenThePokemonPokedexEntryShouldDisplayACorrectSecondaryType()
         {
-            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
+            PokemonFactory TestPokemon = GenericSteps.TestContextData["TestPokemon"];
             PokemonDetailPageModule DetailMod = new PokemonDetailPageModule();
             bool hasSecondaryAPI = TestPokemon.ThisPokemonHasASecondType();   
             if (hasSecondaryAPI)
@@ -131,7 +130,7 @@ namespace TestsSteps
         [Then(@"the Pokemon Pokedex entry should display a correct Base HP stat value")]
         public void ThenThePokemonPokedexEntryShouldDisplayACorrectBaseHPStatValue()
         {
-            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
+            PokemonFactory TestPokemon = GenericSteps.TestContextData["TestPokemon"];
             PokemonDetailPageModule DetailMod = new PokemonDetailPageModule();
             string Hp = DetailMod.FindPokemonBaseHP();
             int HpAPI = TestPokemon.BaseHP;
@@ -141,7 +140,7 @@ namespace TestsSteps
         [Then(@"the Pokemon Pokedex entry should display a correct Base Attack stat value")]
         public void ThenThePokemonPokedexEntryShouldDisplayACorrectBaseAttackStatValue()
         {
-            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
+            PokemonFactory TestPokemon = GenericSteps.TestContextData["TestPokemon"];
             PokemonDetailPageModule DetailMod = new PokemonDetailPageModule();
             string att = DetailMod.FindPokemonBaseAttack();
             int attAPI = TestPokemon.BaseAttack;
@@ -151,7 +150,7 @@ namespace TestsSteps
         [Then(@"the Pokemon Pokedex entry should display a correct Base Defense stat value")]
         public void ThenThePokemonPokedexEntryShouldDisplayACorrectBaseDefenseStatValue()
         {
-            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
+            PokemonFactory TestPokemon = GenericSteps.TestContextData["TestPokemon"];
             PokemonDetailPageModule DetailMod = new PokemonDetailPageModule();
             string def = DetailMod.FindPokemonBaseDefense();
             int defAPI = TestPokemon.BaseDefense;
@@ -161,7 +160,7 @@ namespace TestsSteps
         [Then(@"the Pokemon Pokedex entry should display a correct Base Sp\. Attack stat value")]
         public void ThenThePokemonPokedexEntryShouldDisplayACorrectBaseSp_AttackStatValue()
         {
-            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
+            PokemonFactory TestPokemon = GenericSteps.TestContextData["TestPokemon"];
             PokemonDetailPageModule DetailMod = new PokemonDetailPageModule();
             string att = DetailMod.FindPokemonBaseSpAttack();
             int attAPI = TestPokemon.BaseSpecialAttack;
@@ -171,7 +170,7 @@ namespace TestsSteps
         [Then(@"the Pokemon Pokedex entry should display a correct Base Sp\. Defense stat value")]
         public void ThenThePokemonPokedexEntryShouldDisplayACorrectBaseSp_DefenseStatValue()
         {
-            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
+            PokemonFactory TestPokemon = GenericSteps.TestContextData["TestPokemon"];
             PokemonDetailPageModule DetailMod = new PokemonDetailPageModule();
             string def = DetailMod.FindPokemonBaseSpDefense();
             int defAPI = TestPokemon.BaseSpecialDefense;
@@ -181,7 +180,7 @@ namespace TestsSteps
         [Then(@"the Pokemon Pokedex entry should display a correct Base Speed stat value")]
         public void ThenThePokemonPokedexEntryShouldDisplayACorrectBaseSpeedStatValue()
         {
-            PokemonFactory TestPokemon = TestContextData["TestPokemon"];
+            PokemonFactory TestPokemon = GenericSteps.TestContextData["TestPokemon"];
             PokemonDetailPageModule DetailMod = new PokemonDetailPageModule();
             string spe = DetailMod.FindPokemonBaseSpeed();
             int speAPI = TestPokemon.BaseSpeed;
