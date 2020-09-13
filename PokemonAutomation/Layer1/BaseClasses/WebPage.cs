@@ -1,11 +1,9 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Interactions;
 using System;
-using System.Collections.Generic;
-
 namespace PageObjects
+
 {
     public class WebPage
     {
@@ -13,27 +11,23 @@ namespace PageObjects
         public static int ImplicitWaitSeconds = 0;
         public static int TimeOutSeconds = 0;
 
-        public static void OpenWebBrowser(string wb)
+
+        public static void OpenBrowser(string browser)
         {
-            switch (wb)
+            switch (browser)
             {
                 case "gc":
                     WebDriver = new ChromeDriver();
                     WebDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
                     WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-                    TimeOutSeconds = 30;
-                    ImplicitWaitSeconds = 5;
                     break;
                 case "ff":
                     WebDriver = new FirefoxDriver();
                     WebDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
                     WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-                    TimeOutSeconds = 30;
-                    ImplicitWaitSeconds = 5;
                     break;
             }
         }
-
 
         public static void LoadWebPage(string url)
         {
@@ -80,9 +74,10 @@ namespace PageObjects
         public static WebElement ClickElement(WebElement we)
         {
             we.SearchForThisElement();
-            if (we.AllMatchingResults.Count == 1)
+            if (we.AmountElements == 1)
             {
-                we.AllMatchingResults[0].Click();
+                IWebElement Result = we.ReturnTheIWebElementInPosition(1);
+                Result.Click();
             }
             return we;
         }
@@ -91,9 +86,10 @@ namespace PageObjects
         public static WebElement EnterTextInElement(WebElement we, string text)
         {
             we.SearchForThisElement();
-            if (we.AllMatchingResults.Count == 1)
+            if (we.AmountElements == 1)
             {
-                we.AllMatchingResults[0].SendKeys(text);
+                IWebElement Result = we.ReturnTheIWebElementInPosition(1);
+                Result.SendKeys(text);
             }
             return we;
         }
@@ -102,22 +98,15 @@ namespace PageObjects
         public static WebElement ClearTextBoxText(WebElement we)
         {
             we.SearchForThisElement();
-            if (we.AllMatchingResults.Count == 1)
+            if (we.AmountElements == 1)
             {
-                we.AllMatchingResults[0].SendKeys(Keys.Control + "a");
-                we.AllMatchingResults[0].SendKeys(Keys.Delete);
+                IWebElement Result = we.ReturnTheIWebElementInPosition(1);
+                Result.SendKeys(Keys.Control + "a");
+                Result.SendKeys(Keys.Delete);
             }
             return we;
         }
-
-        public static Actions NewActionsObject()
-        {
-            Actions actions = new Actions(WebDriver);
-            return actions;
-        }
-
     }
-
 
 }
 
