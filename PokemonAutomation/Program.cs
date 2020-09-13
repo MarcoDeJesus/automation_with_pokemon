@@ -10,7 +10,7 @@ namespace AutomationProject
     {
         static void Main(string[] args)
         {
-            WebPage.OpenWebBrowser("gc");
+            WebPage.OpenBrowser("gc");
             WebPage.LoadWebPage("https://pokemondb.net/pokedex/national");
             NationalPokedexPage NDPage = new NationalPokedexPage();
             NDPage.FindPokemonTiles();
