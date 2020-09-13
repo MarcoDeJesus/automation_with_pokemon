@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PageObjects
 {
@@ -9,7 +10,7 @@ namespace PageObjects
         public string Selector;
         public string SelectorMethod;
         public List<IWebElement> AllMatchingResults = new List<IWebElement>();
-        public static int AmountElements { get; private set; }
+        public int AmountElements { get; private set; }
 
 
         public WebElement()
@@ -91,19 +92,10 @@ namespace PageObjects
 
         public IWebElement ReturnTheIWebElementInPosition(int i)
         {
-            int count = 0;
             IWebElement TestWE = null;
             if (!(i <= 0 || i > AmountElements))
             {
-                foreach (IWebElement iwb in AllMatchingResults)
-                {
-                    if (count == (i - 1))
-                    {
-                        TestWE = iwb;
-                        break;
-                    }
-                    count = count + 1;
-                }
+                TestWE = AllMatchingResults.ElementAt(i - 1);
             }
             return TestWE;
         }
