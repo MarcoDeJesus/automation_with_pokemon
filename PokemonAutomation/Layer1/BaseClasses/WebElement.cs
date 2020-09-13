@@ -115,6 +115,7 @@ namespace PageObjects
                     {
                         cwe.AllMatchingResults.Add(element);
                     }
+                    cwe.CountMatchingElements();
                     break;
                 case "class":
                     IReadOnlyList<IWebElement> ElementsListClass = _ipw.FindElements(By.ClassName(_Selector));
@@ -122,6 +123,7 @@ namespace PageObjects
                     {
                         cwe.AllMatchingResults.Add(element);
                     }
+                    cwe.CountMatchingElements();
                     break;
                 case "name":
                     IReadOnlyList<IWebElement> ElementsListName = _ipw.FindElements(By.Name(_Selector));
@@ -129,6 +131,7 @@ namespace PageObjects
                     {
                         cwe.AllMatchingResults.Add(element);
                     }
+                    cwe.CountMatchingElements();
                     break;
                 case "css":
                     IReadOnlyList<IWebElement> ElementsListCss = _ipw.FindElements(By.CssSelector(_Selector));
@@ -136,6 +139,7 @@ namespace PageObjects
                     {
                         cwe.AllMatchingResults.Add(element);
                     }
+                    cwe.CountMatchingElements();
                     break;
                 case "xpath":
                     IReadOnlyList<IWebElement> ElementsListXpath = _ipw.FindElements(By.XPath(_Selector));
@@ -143,6 +147,7 @@ namespace PageObjects
                     {
                         cwe.AllMatchingResults.Add(element);
                     }
+                    cwe.CountMatchingElements();
                     break;
                 case "linktext":
                     IReadOnlyList<IWebElement> ElementsListLinkText = _ipw.FindElements(By.LinkText(_Selector));
@@ -150,6 +155,7 @@ namespace PageObjects
                     {
                         cwe.AllMatchingResults.Add(element);
                     }
+                    cwe.CountMatchingElements();
                     break;
             }
             return cwe;
