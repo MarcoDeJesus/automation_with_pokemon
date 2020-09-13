@@ -9,6 +9,7 @@ namespace PageObjects
         public string Selector;
         public string SelectorMethod;
         public List<IWebElement> AllMatchingResults = new List<IWebElement>();
+        public static int AmountElements { get; private set; }
 
 
         public WebElement()
@@ -27,6 +28,7 @@ namespace PageObjects
         public void SearchForThisElement()
         {
             AllMatchingResults.Clear();
+            int count = 0;
             switch (SelectorMethod.ToLower())
             {
                 case "id":
@@ -34,6 +36,7 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListID)
                     {
                         AllMatchingResults.Add(element);
+                        count = count + 1;
                     }
                     break;
                 case "class":
@@ -41,6 +44,7 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListClass)
                     {
                         AllMatchingResults.Add(element);
+                        count = count + 1;
                     }
                     break;
                 case "name":
@@ -48,6 +52,7 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListName)
                     {
                         AllMatchingResults.Add(element);
+                        count = count + 1;
                     }
                     break;
                 case "css":
@@ -55,6 +60,7 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListCss)
                     {
                         AllMatchingResults.Add(element);
+                        count = count + 1;
                     }
                     break;
                 case "xpath":
@@ -62,6 +68,7 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListXpath)
                     {
                         AllMatchingResults.Add(element);
+                        count = count + 1;
                     }
                     break;
                 case "linktext":
@@ -69,10 +76,38 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListLinkText)
                     {
                         AllMatchingResults.Add(element);
+                        count = count + 1;
                     }
                     break;
             }
+            AmountElements = count;
         }
+
+        public void CountMatchingElements()
+        {
+            AmountElements = AllMatchingResults.Count;
+        }
+
+
+        public IWebElement ReturnTheIWebElementInPosition(int i)
+        {
+            int count = 0;
+            IWebElement TestWE = null;
+            if (!(i <= 0 || i > AmountElements))
+            {
+                foreach (IWebElement iwb in AllMatchingResults)
+                {
+                    if (count == (i - 1))
+                    {
+                        TestWE = iwb;
+                        break;
+                    }
+                    count = count + 1;
+                }
+            }
+            return TestWE;
+        }
+
 
         public WebElement SearchForAnElementInsideThisElement(WebElement cwe)
         {

@@ -13,7 +13,6 @@ namespace PageObjects
         public static int ImplicitWaitSeconds = 0;
         public static int TimeOutSeconds = 0;
 
-
         public static void OpenWebBrowser(string wb)
         {
             switch (wb)
