@@ -10,9 +10,10 @@ namespace AutomationProject
     {
         static void Main(string[] args)
         {
-            WebPage.OpenBrowser("gc");
-            WebPage.LoadWebPage("https://pokemondb.net/pokedex/national");
-            NationalPokedexPage NDPage = new NationalPokedexPage();
+            WebPage genericBrowser = new WebPage();
+            genericBrowser.OpenBrowser("gc");
+            genericBrowser.LoadWebPage("https://pokemondb.net/pokedex/national");
+            NationalPokedexPage NDPage = new NationalPokedexPage(genericBrowser.WebDriver);
             NDPage.FindPokemonTiles();
             string wantedPokemon = "Articuno";
             foreach (IWebElement iwe in NDPage.PokemonTile.AllMatchingResults)

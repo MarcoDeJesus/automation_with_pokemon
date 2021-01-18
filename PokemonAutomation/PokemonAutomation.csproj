@@ -128,37 +128,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Layer1\BaseClasses\APIClient.cs" />
-    <Compile Include="Layer1\BaseClasses\PokemonAbility.cs" />
-    <Compile Include="Layer1\BaseClasses\PokemonTypes.cs" />
-    <Compile Include="Layer1\BaseClasses\WebElement.cs" />
-    <Compile Include="Layer1\BaseClasses\WebPage.cs" />
-    <Compile Include="Layer1\Endpoints\PokemonEndpoint.cs" />
-    <Compile Include="Layer1\PageObjects\NationalPokedexPage.cs" />
-    <Compile Include="Layer1\PageObjects\PokemonDBHome.cs" />
-    <Compile Include="Layer1\PageObjects\PokemonDetailPageNavigationBar.cs" />
-    <Compile Include="Layer1\PageObjects\PokemonDetailPagePokedex.cs" />
-    <Compile Include="Layer1\PageObjects\PokemonDetailPageStats.cs" />
+    <Compile Include="SharedClasses\APIClient.cs" />
+    <Compile Include="Features\PokemonAbility.cs" />
+    <Compile Include="Features\PokemonTypes.cs" />
+    <Compile Include="SharedClasses\WebElement.cs" />
+    <Compile Include="SharedClasses\WebPage.cs" />
+    <Compile Include="APIClients\PokemonEndpoint.cs" />
+    <Compile Include="PageObjects\NationalPokedexPage.cs" />
+    <Compile Include="PageObjects\PokemonDBHome.cs" />
+    <Compile Include="PageObjects\PokemonDetailPageNavigationBar.cs" />
+    <Compile Include="PageObjects\PokemonDetailPagePokedex.cs" />
+    <Compile Include="PageObjects\PokemonDetailPageStats.cs" />
     <Compile Include="Features\Pokemon.cs" />
     <Compile Include="Features\PokemonFactory.cs" />
-    <Compile Include="Layer2\API\PokemonFactoryModule.cs" />
-    <Compile Include="Layer2\UI\NationalPokedexPageModule.cs" />
-    <Compile Include="Layer2\UI\PokemonDBHomeModule.cs" />
-    <Compile Include="Layer2\UI\PokemonDetailPageModule.cs" />
-    <Compile Include="Layer3\GenericSteps.cs" />
-    <Compile Include="Layer3\PokemonClasses\Pokemon_EndpointSteps.cs" />
-    <Compile Include="Layer3\PokemonClasses\Pokemon_ClassSteps.cs" />
-    <Compile Include="Layer3\PokemonDBPage\PokemonStats_PageSteps.cs" />
-    <Compile Include="Layer4\API\Pokemon_Endpoint.feature.cs" />
-    <Compile Include="Layer4\UI\PokemonStats_Page.feature.cs" />
+    <Compile Include="BusinessLogicAPI\PokemonFactoryModule.cs" />
+    <Compile Include="BusinessLogicUI\NationalPokedexPageModule.cs" />
+    <Compile Include="BusinessLogicUI\PokemonDBHomeModule.cs" />
+    <Compile Include="BusinessLogicUI\PokemonDetailPageModule.cs" />
+    <Compile Include="TestSteps\GenericSteps.cs" />
+    <Compile Include="Tests\API\Pokemon_Endpoint.feature.cs" />
+    <Compile Include="Tests\UI\PokemonStats_Page.feature.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Layer4\API\Pokemon_Class.feature" />
-    <None Include="Layer4\API\Pokemon_Endpoint.feature" />
-    <None Include="Layer4\UI\PokemonStats_Page.feature" />
+    <None Include="Tests\API\Pokemon_Class.feature" />
+    <None Include="Tests\API\Pokemon_Endpoint.feature" />
+    <None Include="Tests\UI\PokemonStats_Page.feature" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
@@ -169,17 +166,17 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.17.0\build\net35\NUnit3TestAdapter.props'))" />
-    <Error Condition="!Exists('..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets'))" />
-    <Error Condition="!Exists('..\packages\Selenium.Chrome.WebDriver.83.0.0\build\Selenium.Chrome.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Chrome.WebDriver.83.0.0\build\Selenium.Chrome.WebDriver.targets'))" />
     <Error Condition="!Exists('..\packages\SpecFlow.3.3.74\build\SpecFlow.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.3.3.74\build\SpecFlow.targets'))" />
     <Error Condition="!Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.3.74\build\SpecFlow.Tools.MsBuild.Generation.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.Tools.MsBuild.Generation.3.3.74\build\SpecFlow.Tools.MsBuild.Generation.props'))" />
     <Error Condition="!Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.3.74\build\SpecFlow.Tools.MsBuild.Generation.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.Tools.MsBuild.Generation.3.3.74\build\SpecFlow.Tools.MsBuild.Generation.targets'))" />
     <Error Condition="!Exists('..\packages\SpecFlow.NUnit.3.3.74\build\SpecFlow.NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.NUnit.3.3.74\build\SpecFlow.NUnit.props'))" />
     <Error Condition="!Exists('..\packages\SpecFlow.NUnit.3.3.74\build\SpecFlow.NUnit.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.NUnit.3.3.74\build\SpecFlow.NUnit.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.87.0.4280.8800\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.87.0.4280.8800\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.29.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.29.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets'))" />
   </Target>
-  <Import Project="..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets')" />
-  <Import Project="..\packages\Selenium.Chrome.WebDriver.83.0.0\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.83.0.0\build\Selenium.Chrome.WebDriver.targets')" />
   <Import Project="..\packages\SpecFlow.3.3.74\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.3.3.74\build\SpecFlow.targets')" />
   <Import Project="..\packages\SpecFlow.Tools.MsBuild.Generation.3.3.74\build\SpecFlow.Tools.MsBuild.Generation.targets" Condition="Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.3.74\build\SpecFlow.Tools.MsBuild.Generation.targets')" />
   <Import Project="..\packages\SpecFlow.NUnit.3.3.74\build\SpecFlow.NUnit.targets" Condition="Exists('..\packages\SpecFlow.NUnit.3.3.74\build\SpecFlow.NUnit.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.87.0.4280.8800\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.87.0.4280.8800\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.29.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets" Condition="Exists('..\packages\Selenium.WebDriver.GeckoDriver.Win64.0.29.0\build\Selenium.WebDriver.GeckoDriver.Win64.targets')" />
 </Project>
