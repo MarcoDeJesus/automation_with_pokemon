@@ -58,7 +58,7 @@ namespace TestsSteps
             GivenThatTheUserHasSelectedThePokemon(name);
             WhenTheTestUserQueriesThePokemonAPIWithTheSelectedPokemon();
             PokemonFactory TestPokemon = TestContextData["TestPokemon"];
-            TestContextData.Add("TestPokemon", TestPokemon);
+            TestContextData["TestPokemon"] = TestPokemon;
 
         }
 
