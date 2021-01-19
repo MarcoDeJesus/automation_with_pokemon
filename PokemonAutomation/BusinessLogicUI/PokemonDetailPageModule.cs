@@ -18,6 +18,7 @@ namespace AutomationProject.Layer2.UI
         }
 
 
+
         public string FindPokemonNameInPage()
         {
             PokemonDetailPagePokedex DexObject = new PokemonDetailPagePokedex(CurrentDriver);

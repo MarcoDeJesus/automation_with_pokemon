@@ -9,10 +9,18 @@ namespace UIModules
         public IWebDriver CurrentDriver;
         private string WebBrowser;
 
+
         public PokemonDBHomeModule(IWebDriver driver)
         {
             CurrentDriver = driver;
         }
+
+
+        public void GoToThisPage()
+        {
+            CurrentDriver.Navigate().GoToUrl("https://pokemondb.net/");
+        }
+
 
         public void UserClicksNationalPokedexQuickLink ()
         {

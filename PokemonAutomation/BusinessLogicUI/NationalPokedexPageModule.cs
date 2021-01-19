@@ -11,9 +11,15 @@ namespace UIModules
         public IWebDriver CurrentDriver;
         private string WebBrowser;
 
+
         public NationalPokedexPageModule(IWebDriver driver)
         {
             CurrentDriver = driver;
+        }
+
+        public void GoToThisPage()
+        {
+            CurrentDriver.Navigate().GoToUrl("https://pokemondb.net/pokedex/national");
         }
 
 

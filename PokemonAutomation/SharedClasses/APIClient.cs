@@ -19,60 +19,6 @@ namespace APIClients
         {
         }
 
-        public APIClient(string txtoken)
-        {
-            BearerToken = txtoken;
-        }
-
-        public void CreateRequest() {
-            Uri baseUrl = new Uri(RequestServerURL);
-            ClientOld = new RestClient(baseUrl);
-            switch (RequestMethod.ToLower())
-            {
-                case "get":
-                    RequestOld = new RestRequest(RequestURI, Method.GET);
-                    RequestOld.AddHeader("authorization", "Bearer "+ BearerToken);
-                    break;
-                case "post":
-                    RequestOld = new RestRequest(RequestURI, Method.POST);
-                    RequestOld.AddHeader("authorization", "Bearer " + BearerToken);
-                    break;
-                case "put":
-                    RequestOld = new RestRequest(RequestURI, Method.PUT);
-                    RequestOld.AddHeader("authorization", "Bearer " + BearerToken);
-                    break;
-                default:
-                    RequestOld = new RestRequest(RequestURI, Method.GET);
-                    RequestOld.AddHeader("authorization", "Bearer " + BearerToken);
-                    break;
-            }
-            RequestOld.AddHeader("Accept", "application/json, text/plain, */*");
-        }
-
-        public void AddHeaders(string Header, string HeaderValue) {
-            RequestOld.AddHeader(Header, HeaderValue);
-        }
-
-        public void AddPayload()
-        {
-            RequestOld.AddParameter("application/json; charset=utf-8", RequestPayload, ParameterType.RequestBody);
-        }
-
-
-        public void ExecuteRequest()
-        {
-            RequestResponseOld = ClientOld.Execute(RequestOld);
-        }
-
-        public int GetResponseCode() {
-            HttpStatusCode statusCode = RequestResponseOld.StatusCode;
-            return (int)statusCode;
-        }
-
-        public string GetResponseData() {
-            return RequestResponseOld.Content;
-        }
-
         public IRestResponse ExecuteGETCall(string URL, string URI)
         {
             IRestClient Client;
