@@ -1,8 +1,8 @@
 # automation_101
 
-Download Visual Studio 2019 Commnity edition
+This project has all libraries needed to run already installed.
 
-Using NuGet package manager, install:
+To Build This Project from scratch, you will need to download some packages in Visual Studio 2019:
 - Selenium.WebDriver.ChromeDriver
 - Selenium.WebDriver.GeckoDriver.Win64
 - Selenium.Support
