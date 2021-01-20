@@ -4,8 +4,8 @@
 
 The goal behind this project is to be able to ATDD(BDD) and UnitTesting in something I'm very familiar with, which are the Pokemon Games. the idea is to use existing API's, WebPages and Classes of my Own for didactic purposes.
 
-Used API: https://pokeapi.co/
-Used Web Page: https://pokemondb.net/
+- Used API: https://pokeapi.co/
+- Used Web Page: https://pokemondb.net/
 
 
 
