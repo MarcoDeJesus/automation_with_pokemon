@@ -3,6 +3,7 @@ using Features;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using PageObjects;
+using PokemonAutomation.BusinessLogicUI;
 using PokemonTypesNamespace;
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
@@ -14,7 +15,7 @@ namespace TestsSteps
     public class GenericSteps
     {
         public bool isWebTest = false;
-        public Dictionary<string, dynamic> TestContextData = new Dictionary<string, dynamic>(); 
+        public Dictionary<string, dynamic> TestContextData = new Dictionary<string, dynamic>();
         public IWebDriver _driver;
 
         #region GenericSteps
@@ -406,6 +407,36 @@ namespace TestsSteps
         }
         #endregion
 
+
+        #region LoginPage
+        [Given(@"that the test user is in the System Login page")]
+        public void GivenThatTheTestUserIsInTheSystemLoginPage()
+        {
+            WebPage genericBrowser = new WebPage();
+            genericBrowser.OpenBrowser("gc");
+            genericBrowser.MaximizeWindow();
+            _driver = genericBrowser.WebDriver;
+            LoginPageModule lpm = new LoginPageModule(_driver);
+            lpm.GoToThisPage();
+        }
+
+        [Given(@"the test user provides this '(.*)' as username and this '(.*)' as password")]
+        public void GivenTheTestUserProvidesThisAsUsernameAndThisAsPassword(string p0, string p1)
+        {
+            LoginPageModule lpm = new LoginPageModule(_driver);
+            lpm.TheTestUserProvidesTheseCredentials(p0, p1);
+        }
+
+        [When(@"the test clicks the login button")]
+        public void WhenTheTestClicksTheLoginButton()
+        {
+            LoginPageModule lpm = new LoginPageModule(_driver);
+            lpm.TheUserClicksTheLoginButton();
+        }
+
+
+
+        #endregion
 
     }
 }

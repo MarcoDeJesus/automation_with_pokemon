@@ -128,6 +128,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicUI\LoginPageModule.cs" />
+    <Compile Include="BusinessLogicUI\SecurePageModule.cs" />
+    <Compile Include="PageObjects\LoginPage.cs" />
+    <Compile Include="PageObjects\SecurePage.cs" />
     <Compile Include="SharedClasses\APIClient.cs" />
     <Compile Include="Features\PokemonAbility.cs" />
     <Compile Include="Features\PokemonTypes.cs" />
@@ -147,6 +151,8 @@
     <Compile Include="BusinessLogicUI\PokemonDetailPageModule.cs" />
     <Compile Include="TestSteps\GenericSteps.cs" />
     <Compile Include="Tests\API\Pokemon_Endpoint.feature.cs" />
+    <Compile Include="Tests\SimpleTest.cs" />
+    <Compile Include="Tests\TestPage\LoginPage.feature.cs" />
     <Compile Include="Tests\UI\PokemonStats_Page.feature.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -156,6 +162,7 @@
     <None Include="App.config" />
     <None Include="Tests\API\Pokemon_Class.feature" />
     <None Include="Tests\API\Pokemon_Endpoint.feature" />
+    <None Include="Tests\TestPage\LoginPage.feature" />
     <None Include="Tests\UI\PokemonStats_Page.feature" />
     <None Include="packages.config" />
   </ItemGroup>

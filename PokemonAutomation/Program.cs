@@ -11,6 +11,15 @@ namespace AutomationProject
     {
         static void Main(string[] args)
         {
+
+            WebPage genericBrowser = new WebPage();
+            genericBrowser.OpenBrowser("gc");
+            genericBrowser.LoadWebPage("https://the-internet.herokuapp.com/login");
+            LoginPage lp = new LoginPage(genericBrowser.WebDriver);
+            lp.ClickLoginButton();
+            Thread.Sleep(2000);
+
+            /**
             bool useAbstraction = true;
             if (useAbstraction)
             {
@@ -29,9 +38,9 @@ namespace AutomationProject
                 NDPage.FindPokemonTiles();
                 NDPage.MoveIntoViewToPokemonNamed("Lugia");
                 NDPage.ClickPokemonTileNamed("Lugia");
-            }
+            }**/
 
-         
+
 
         }
     }
