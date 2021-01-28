@@ -1,4 +1,3 @@
-
 .vs/*
 AutomationATDD/bin/*
 AutomationATDD/obj/*
@@ -13,4 +12,5 @@ PokemonDataBasePage/bin/*
 PokemonDataBasePage/obj/*
 PokemonAPI/bin/*
 PokemonAPI/obj/*
-.vs/AutomationProject/v16/.suo
+CodeExecution/bin/*
+CodeExecution/obj/*
