@@ -29,6 +29,11 @@ namespace PageObjects
             WebDriver = driver;
         }
 
+        public WebPage(string browser)
+        {
+            OpenBrowser(browser);
+        }
+
         public void OpenBrowser(string browser)
         {
             switch (browser)
