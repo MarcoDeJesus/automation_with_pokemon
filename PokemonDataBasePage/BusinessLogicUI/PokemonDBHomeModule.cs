@@ -27,5 +27,16 @@ namespace UIModules
             PokemonDBHome HomePageObject = new PokemonDBHome(_wp);
             HomePageObject.ClickNationalDexLink();
         }
+
+        public void CloseModalIfPresent()
+        {
+            PokemonDBHome HomePageObject = new PokemonDBHome(_wp);
+            int countElements = HomePageObject.FindModalOkButton().AmountElements;
+            if (countElements == 1)
+            {
+                HomePageObject.ClickOKModalButton();
+            }
+
+        }
     }
 }
