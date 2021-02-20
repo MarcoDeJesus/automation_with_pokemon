@@ -15,16 +15,16 @@ namespace PageObjects
         public WebElement TabBasicContainer_StatsContainer_BaseStatSpAttack = new WebElement("table.vitals-table tbody>tr:nth-child(4) td:nth-of-type(1)", "css");
         public WebElement TabBasicContainer_StatsContainer_BaseStatSpDefense = new WebElement("table.vitals-table tbody>tr:nth-child(5) td:nth-of-type(1)", "css");
         public WebElement TabBasicContainer_StatsContainer_BaseStatSpeed = new WebElement("table.vitals-table tbody>tr:nth-child(6) td:nth-of-type(1)", "css");
-        public IWebDriver _driver;
+        public WebPage _webPage;
 
-        public PokemonDetailPageStats(IWebDriver driver)
+        public PokemonDetailPageStats(WebPage webPage)
         {
-            _driver = driver;
+                _webPage = webPage;
         }
 
         public WebElement FindHPBaseStatusData()
         {
-            TabBasicContainer.SearchForThisElement(_driver);
+            TabBasicContainer = _webPage.SearchForThisElement(TabBasicContainer);
             TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
             TabBasicContainer_StatsContainer_BaseStatHP = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatHP);
             return TabBasicContainer_StatsContainer_BaseStatHP;
@@ -32,7 +32,7 @@ namespace PageObjects
 
         public WebElement FindAttackBaseStatusData()
         {
-            TabBasicContainer.SearchForThisElement(_driver);
+            TabBasicContainer = _webPage.SearchForThisElement(TabBasicContainer);
             TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
             TabBasicContainer_StatsContainer_BaseStatAttack = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatAttack);
             return TabBasicContainer_StatsContainer_BaseStatAttack;
@@ -40,7 +40,7 @@ namespace PageObjects
 
         public WebElement FindDefenseBaseStatusData()
         {
-            TabBasicContainer.SearchForThisElement(_driver);
+            TabBasicContainer = _webPage.SearchForThisElement(TabBasicContainer);
             TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
             TabBasicContainer_StatsContainer_BaseStatDefense = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatDefense);
             return TabBasicContainer_StatsContainer_BaseStatDefense;
@@ -48,7 +48,7 @@ namespace PageObjects
 
         public WebElement FindSpAttackBaseStatusData()
         {
-            TabBasicContainer.SearchForThisElement(_driver);
+            TabBasicContainer = _webPage.SearchForThisElement(TabBasicContainer);
             TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
             TabBasicContainer_StatsContainer_BaseStatSpAttack = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatSpAttack);
             return TabBasicContainer_StatsContainer_BaseStatSpAttack;
@@ -56,7 +56,7 @@ namespace PageObjects
 
         public WebElement FindSpDefenseBaseStatusData()
         {
-            TabBasicContainer.SearchForThisElement(_driver);
+            TabBasicContainer = _webPage.SearchForThisElement(TabBasicContainer);
             TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
             TabBasicContainer_StatsContainer_BaseStatSpDefense = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatSpDefense);
             return TabBasicContainer_StatsContainer_BaseStatSpDefense;
@@ -64,7 +64,7 @@ namespace PageObjects
 
         public WebElement FindSpeedBaseStatusData()
         {
-            TabBasicContainer.SearchForThisElement(_driver);
+            TabBasicContainer = _webPage.SearchForThisElement(TabBasicContainer);
             TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
             TabBasicContainer_StatsContainer_BaseStatSpeed = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatSpeed);
             return TabBasicContainer_StatsContainer_BaseStatSpeed;
