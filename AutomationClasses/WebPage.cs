@@ -73,10 +73,9 @@ namespace PageObjects
         }
 
 
-        public void UpdateImplicitWait(int seconds)
+        public void UpdateExplitiWait(int seconds)
         {
-            ImplicitWaitSeconds = seconds;
-            WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(seconds);
+            explicitWait = seconds;
         }
 
 
