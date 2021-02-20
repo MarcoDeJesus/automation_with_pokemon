@@ -8,19 +8,19 @@ namespace AutomationProject.Layer2.UI
     class PokemonDetailPageModule
     {
 
-        public IWebDriver CurrentDriver;
+        public WebPage _wp;
         private string WebBrowser;
 
-        public PokemonDetailPageModule(IWebDriver driver)
+        public PokemonDetailPageModule(WebPage wp)
         {
-            CurrentDriver = driver;
+            _wp = wp;
         }
 
 
 
         public string FindPokemonNameInPage()
         {
-            PokemonDetailPagePokedex DexObject = new PokemonDetailPagePokedex(CurrentDriver);
+            PokemonDetailPagePokedex DexObject = new PokemonDetailPagePokedex(_wp);
             WebElement PokemonName = DexObject.FindPokemonNameHeaderLabel();
             string name = null;
             if (PokemonName.AllMatchingResults.Count == 1)
@@ -32,7 +32,7 @@ namespace AutomationProject.Layer2.UI
 
         public string FindPokemonNationalNumber()
         {
-            PokemonDetailPagePokedex DexObject = new PokemonDetailPagePokedex(CurrentDriver);
+            PokemonDetailPagePokedex DexObject = new PokemonDetailPagePokedex(_wp);
             WebElement PokemonNumber = DexObject.FindNationalDexNumberLabel();
             string number = null;
             if (PokemonNumber.AllMatchingResults.Count == 1)
@@ -44,7 +44,7 @@ namespace AutomationProject.Layer2.UI
 
         public List<PokemonTypes> FindPokemonTypes()
         {
-            PokemonDetailPagePokedex DexObject = new PokemonDetailPagePokedex(CurrentDriver);
+            PokemonDetailPagePokedex DexObject = new PokemonDetailPagePokedex(_wp);
             WebElement PokemonTypes = DexObject.FindPokemonTypesLabels();
             List<PokemonTypes> TypesPage = new List<PokemonTypes>();
             int amountTypes = PokemonTypes.AllMatchingResults.Count;
@@ -60,7 +60,7 @@ namespace AutomationProject.Layer2.UI
 
         public string FindPokemonBaseHP()
         {
-            PokemonDetailPageStats StatsObject = new PokemonDetailPageStats(CurrentDriver);
+            PokemonDetailPageStats StatsObject = new PokemonDetailPageStats(_wp);
             StatsObject.FindHPBaseStatusData();
             string hp = null;
             if (StatsObject.TabBasicContainer_StatsContainer_BaseStatHP.AllMatchingResults.Count == 1)
@@ -72,7 +72,7 @@ namespace AutomationProject.Layer2.UI
 
         public string FindPokemonBaseAttack()
         {
-            PokemonDetailPageStats StatsObject = new PokemonDetailPageStats(CurrentDriver);
+            PokemonDetailPageStats StatsObject = new PokemonDetailPageStats(_wp);
             StatsObject.FindAttackBaseStatusData();
             string att = null;
             if (StatsObject.TabBasicContainer_StatsContainer_BaseStatAttack.AllMatchingResults.Count == 1)
@@ -84,7 +84,7 @@ namespace AutomationProject.Layer2.UI
 
         public string FindPokemonBaseDefense()
         {
-            PokemonDetailPageStats StatsObject = new PokemonDetailPageStats(CurrentDriver);
+            PokemonDetailPageStats StatsObject = new PokemonDetailPageStats(_wp);
             StatsObject.FindDefenseBaseStatusData();
             string def = null;
             if (StatsObject.TabBasicContainer_StatsContainer_BaseStatDefense.AllMatchingResults.Count == 1)
@@ -96,7 +96,7 @@ namespace AutomationProject.Layer2.UI
 
         public string FindPokemonBaseSpAttack()
         {
-            PokemonDetailPageStats StatsObject = new PokemonDetailPageStats(CurrentDriver);
+            PokemonDetailPageStats StatsObject = new PokemonDetailPageStats(_wp);
             StatsObject.FindSpAttackBaseStatusData();
             string spa = null;
             if (StatsObject.TabBasicContainer_StatsContainer_BaseStatSpAttack.AllMatchingResults.Count == 1)
@@ -108,7 +108,7 @@ namespace AutomationProject.Layer2.UI
 
         public string FindPokemonBaseSpDefense()
         {
-            PokemonDetailPageStats StatsObject = new PokemonDetailPageStats(CurrentDriver);
+            PokemonDetailPageStats StatsObject = new PokemonDetailPageStats(_wp);
             StatsObject.FindSpDefenseBaseStatusData();
             string spd = null;
             if (StatsObject.TabBasicContainer_StatsContainer_BaseStatSpDefense.AllMatchingResults.Count == 1)
@@ -120,7 +120,7 @@ namespace AutomationProject.Layer2.UI
 
         public string FindPokemonBaseSpeed()
         {
-            PokemonDetailPageStats StatsObject = new PokemonDetailPageStats(CurrentDriver);
+            PokemonDetailPageStats StatsObject = new PokemonDetailPageStats(_wp);
             StatsObject.FindSpeedBaseStatusData();
             string spe = null;
             if (StatsObject.TabBasicContainer_StatsContainer_BaseStatSpeed.AllMatchingResults.Count == 1)
