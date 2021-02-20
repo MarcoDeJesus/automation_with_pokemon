@@ -73,7 +73,7 @@ namespace PageObjects
         }
 
 
-        public void UpdateExplitiWait(int seconds)
+        public void UpdateExplicitWait(int seconds)
         {
             explicitWait = seconds;
         }
