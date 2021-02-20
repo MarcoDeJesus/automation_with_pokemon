@@ -6,26 +6,37 @@ namespace UIModules
     public class PokemonDBHomeModule
     {
 
-        public IWebDriver CurrentDriver;
+        public WebPage _wp;
         private string WebBrowser;
 
 
-        public PokemonDBHomeModule(IWebDriver driver)
+        public PokemonDBHomeModule(WebPage wp)
         {
-            CurrentDriver = driver;
+            _wp = wp;
         }
 
 
         public void GoToThisPage()
         {
-            CurrentDriver.Navigate().GoToUrl("https://pokemondb.net/");
+            _wp.LoadWebPage("https://pokemondb.net/");
         }
 
 
         public void UserClicksNationalPokedexQuickLink ()
         {
-            PokemonDBHome HomePageObject = new PokemonDBHome(CurrentDriver);
+            PokemonDBHome HomePageObject = new PokemonDBHome(_wp);
             HomePageObject.ClickNationalDexLink();
+        }
+
+        public void CloseModalIfPresent()
+        {
+            PokemonDBHome HomePageObject = new PokemonDBHome(_wp);
+            int countElements = HomePageObject.FindModalOkButton().AmountElements;
+            if (countElements == 1)
+            {
+                HomePageObject.ClickOKModalButton();
+            }
+
         }
     }
 }

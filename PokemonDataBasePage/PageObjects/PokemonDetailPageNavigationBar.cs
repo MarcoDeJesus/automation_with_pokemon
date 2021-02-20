@@ -16,24 +16,22 @@ namespace PageObjects
         public WebElement SpritesLink = new WebElement("a[href='#dex-sprites']", "css");
         public WebElement LocationsLink = new WebElement("a[href='#dex-locations']", "css");
         public WebElement LanguageLink = new WebElement("a[href='#dex-lang']", "css");
-        public IWebDriver _driver;
+        public WebPage _webPage;
 
-        public PokemonDetailPageNavigationBar(IWebDriver driver)
+        public PokemonDetailPageNavigationBar(WebPage webPage)
         {
-            _driver = driver;
+                _webPage = webPage;
         }
 
         public WebElement ClickInfoLink()
         {
-            WebPage genericPage = new WebPage(_driver);
-            InfoLink = genericPage.ClickElement(InfoLink);
+            InfoLink = _webPage.ClickElement(InfoLink);
             return InfoLink;
         }
 
         public WebElement ClickBaseStatsLink()
         {
-            WebPage genericPage = new WebPage(_driver);
-            BaseStatsLink = genericPage.ClickElement(BaseStatsLink);
+            BaseStatsLink = _webPage.ClickElement(BaseStatsLink);
             return BaseStatsLink;
         }
 

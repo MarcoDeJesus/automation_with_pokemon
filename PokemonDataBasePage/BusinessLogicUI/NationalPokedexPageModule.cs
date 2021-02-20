@@ -8,24 +8,24 @@ namespace UIModules
 {
     class NationalPokedexPageModule
     {
-        public IWebDriver CurrentDriver;
+        public WebPage _wp;
         private string WebBrowser;
 
 
-        public NationalPokedexPageModule(IWebDriver driver)
+        public NationalPokedexPageModule(WebPage wp)
         {
-            CurrentDriver = driver;
+            _wp = wp;
         }
 
         public void GoToThisPage()
         {
-            CurrentDriver.Navigate().GoToUrl("https://pokemondb.net/pokedex/national");
+            _wp.LoadWebPage("https://pokemondb.net/pokedex/national");
         }
 
 
         public void UserClicksPokemonFromTheList(string name)
         {
-            NationalPokedexPage NDPage = new NationalPokedexPage(CurrentDriver);
+            NationalPokedexPage NDPage = new NationalPokedexPage(_wp);
             NDPage.MoveIntoViewToPokemonNamed(name);
             NDPage.ClickPokemonTileNamed(name);
         }
