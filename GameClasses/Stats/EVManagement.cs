@@ -32,109 +32,98 @@ namespace StatsManagement
         }
         public void AddEVPointsToHP(int evs)
         {
-            int Total = GetTotalEVPoints();
-            if (Total <= 510)
-            {
-                int TotalEVs = Total + evs;
-                if (TotalEVs <= 510)
-                {
-                    int TotalStatus = hp + evs;
-                    if (TotalStatus <= 252)
-                    {
-                        hp = TotalStatus;
-                    }
-                }
-            }
+            AllocateEVPoints(evs, "hp");
         }
 
         public void AddEVPointsToAttack(int evs)
         {
-            int Total = GetTotalEVPoints();
-            if (Total <= 510)
-            {
-                int TotalEVs = Total + evs;
-                if (TotalEVs <= 510)
-                {
-                    int TotalStatus = attack + evs;
-                    if (TotalStatus <= 252)
-                    {
-                        attack = TotalStatus;
-                    }
-                }
-            }
+            AllocateEVPoints(evs, "attack");
         }
 
         public void AddEVPointsToDefense(int evs)
         {
-            int Total = GetTotalEVPoints();
-            if (Total <= 510)
-            {
-                int TotalEVs = Total + evs;
-                if (TotalEVs <= 510)
-                {
-                    int TotalStatus = defense + evs;
-                    if (TotalStatus <= 252)
-                    {
-                        defense = TotalStatus;
-                    }
-                }
-            }
+            AllocateEVPoints(evs, "defense");
         }
 
 
         public void AddEVPointsToSpecialAttack(int evs)
         {
-            int Total = GetTotalEVPoints();
-            if (Total <= 510)
-            {
-                int TotalEVs = Total + evs;
-                if (TotalEVs <= 510)
-                {
-                    int TotalStatus = specialAttack + evs;
-                    if (TotalStatus <= 252)
-                    {
-                        specialAttack = TotalStatus;
-                    }
-                }
-            }
+            AllocateEVPoints(evs, "specialAttack");
         }
 
 
         public void AddEVPointsToSpecialDefense(int evs)
         {
-            int Total = GetTotalEVPoints();
-            if (Total <= 510)
-            {
-                int TotalEVs = Total + evs;
-                if (TotalEVs <= 510)
-                {
-                    int TotalStatus = specialDefense + evs;
-                    if (TotalStatus <= 252)
-                    {
-                        specialDefense = TotalStatus;
-                    }
-                }
-            }
+            AllocateEVPoints(evs, "specialDefense");
         }
 
 
         public void AddEVPointsToSpeed(int evs)
         {
-            int Total = GetTotalEVPoints();
-            if (Total <= 510)
+            AllocateEVPoints(evs, "speed");
+        }
+
+
+        private void AllocateEVPoints(int evs, string stat)
+        {
+            int TotalStatus = 0;
+            if (evs >= 0)
             {
-                int TotalEVs = Total + evs;
-                if (TotalEVs <= 510)
+                int Total = GetTotalEVPoints();
+                if (Total <= 510)
                 {
-                    int TotalStatus = speed + evs;
-                    if (TotalStatus <= 252)
+                    int TotalEVs = Total + evs;
+                    if (TotalEVs <= 510)
                     {
-                        speed = TotalStatus;
+                        switch (stat)
+                        {
+                            case "hp":
+                                TotalStatus = hp + evs;
+                                if (TotalStatus <= 252)
+                                {
+                                    hp = TotalStatus;
+                                }
+                                break;
+                            case "attack":
+                                TotalStatus = attack + evs;
+                                if (TotalStatus <= 252)
+                                {
+                                    attack = TotalStatus;
+                                }
+                                break;
+                            case "defense":
+                                TotalStatus = defense + evs;
+                                if (TotalStatus <= 252)
+                                {
+                                    defense = TotalStatus;
+                                }
+                                break;
+                            case "specialAttack":
+                                TotalStatus = specialAttack + evs;
+                                if (TotalStatus <= 252)
+                                {
+                                    specialAttack = TotalStatus;
+                                }
+                                break;
+                            case "specialDefense":
+                                TotalStatus = specialDefense + evs;
+                                if (TotalStatus <= 252)
+                                {
+                                    specialDefense = TotalStatus;
+                                }
+                                break;
+                            case "speed":
+                                TotalStatus = speed + evs;
+                                if (TotalStatus <= 252)
+                                {
+                                    speed = TotalStatus;
+                                }
+                                break;
+                        }
                     }
                 }
             }
         }
-
 
     }
 }
