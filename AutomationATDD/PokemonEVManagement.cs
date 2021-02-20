@@ -21,5 +21,90 @@ namespace AutomationATDD
             int actualEV = evObject.hp;
             Assert.AreEqual(expectedEV, actualEV);
         }
+
+        [Test]
+        [TestCase(200, 253, 200)]
+        [TestCase(200, 52, 252)]
+        [TestCase(100, 52, 152)]
+        [TestCase(254, 0, 0)]
+        [TestCase(254, 1, 1)]
+        [TestCase(-1, -1, 0)]
+        public void AddingEVsIntoPokemonAttackStat(int initialEV, int addedEV, int expectedEV)
+        {
+            EVManagement evObject = new EVManagement();
+            evObject.AddEVPointsToAttack(initialEV);
+            evObject.AddEVPointsToAttack(addedEV);
+            int actualEV = evObject.attack;
+            Assert.AreEqual(expectedEV, actualEV);
+        }
+
+
+        [Test]
+        [TestCase(200, 253, 200)]
+        [TestCase(200, 52, 252)]
+        [TestCase(100, 52, 152)]
+        [TestCase(254, 0, 0)]
+        [TestCase(254, 1, 1)]
+        [TestCase(-1, -1, 0)]
+        public void AddingEVsIntoPokemonDefenseStat(int initialEV, int addedEV, int expectedEV)
+        {
+            EVManagement evObject = new EVManagement();
+            evObject.AddEVPointsToDefense(initialEV);
+            evObject.AddEVPointsToDefense(addedEV);
+            int actualEV = evObject.defense;
+            Assert.AreEqual(expectedEV, actualEV);
+        }
+
+
+        [Test]
+        [TestCase(200, 253, 200)]
+        [TestCase(200, 52, 252)]
+        [TestCase(100, 52, 152)]
+        [TestCase(254, 0, 0)]
+        [TestCase(254, 1, 1)]
+        [TestCase(-1, -1, 0)]
+        public void AddingEVsIntoPokemonSpecialAttackStat(int initialEV, int addedEV, int expectedEV)
+        {
+            EVManagement evObject = new EVManagement();
+            evObject.AddEVPointsToSpecialAttack(initialEV);
+            evObject.AddEVPointsToSpecialAttack(addedEV);
+            int actualEV = evObject.specialAttack;
+            Assert.AreEqual(expectedEV, actualEV);
+        }
+
+        [Test]
+        [TestCase(200, 253, 200)]
+        [TestCase(200, 52, 252)]
+        [TestCase(100, 52, 152)]
+        [TestCase(254, 0, 0)]
+        [TestCase(254, 1, 1)]
+        [TestCase(-1, -1, 0)]
+        public void AddingEVsIntoPokemonSpecialDefenseStat(int initialEV, int addedEV, int expectedEV)
+        {
+            EVManagement evObject = new EVManagement();
+            evObject.AddEVPointsToSpecialDefense(initialEV);
+            evObject.AddEVPointsToSpecialDefense(addedEV);
+            int actualEV = evObject.specialDefense;
+            Assert.AreEqual(expectedEV, actualEV);
+        }
+
+
+        [Test]
+        [TestCase(200, 253, 200)]
+        [TestCase(200, 52, 252)]
+        [TestCase(100, 52, 152)]
+        [TestCase(254, 0, 0)]
+        [TestCase(254, 1, 1)]
+        [TestCase(-1, -1, 0)]
+        public void AddingEVsIntoPokemonSpeedStat(int initialEV, int addedEV, int expectedEV)
+        {
+            EVManagement evObject = new EVManagement();
+            evObject.AddEVPointsToSpeed(initialEV);
+            evObject.AddEVPointsToSpeed(addedEV);
+            int actualEV = evObject.speed;
+            Assert.AreEqual(expectedEV, actualEV);
+        }
+
+
     }
 }
