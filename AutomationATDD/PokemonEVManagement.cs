@@ -11,6 +11,7 @@ namespace AutomationATDD
         [TestCase(200, 52, 252)]
         [TestCase(100, 52, 152)]
         [TestCase(254, 0, 0)]
+        [TestCase(254, 1, 1)]
         [TestCase(-1, -1, 0)]
         public void AddingEVsIntoPokemonHPStat(int initialEV, int addedEV, int expectedEV)
         {
