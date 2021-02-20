@@ -88,7 +88,7 @@ namespace PageObjects
 
         public WebElement ClickElement(WebElement we)
         {
-            we.SearchForThisElement(WebDriver);
+            we = SearchForThisElement(we);
             if (we.AmountElements == 1)
             {
                 IWebElement Result = we.ReturnTheIWebElementInPosition(1);
@@ -100,7 +100,7 @@ namespace PageObjects
 
         public WebElement EnterTextInElement(WebElement we, string text)
         {
-            we.SearchForThisElement(WebDriver);
+            we = SearchForThisElement(we);
             if (we.AmountElements == 1)
             {
                 IWebElement Result = we.ReturnTheIWebElementInPosition(1);
@@ -112,7 +112,7 @@ namespace PageObjects
 
         public WebElement ClearTextBoxText(WebElement we)
         {
-            we.SearchForThisElement(WebDriver);
+            we = SearchForThisElement(we);
             if (we.AmountElements == 1)
             {
                 IWebElement Result = we.ReturnTheIWebElementInPosition(1);
