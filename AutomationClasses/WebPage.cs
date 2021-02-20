@@ -129,6 +129,68 @@ namespace PageObjects
         }
 
 
+        public WebElement SearchForThisElement(WebElement we)
+        {
+            we.AllMatchingResults.Clear();
+            int count = 0;
+            switch (we.SelectorMethod.ToLower())
+            {
+                case "id":
+                    IReadOnlyList<IWebElement> ElementsListID = WebDriver.FindElements(By.Id(we.Selector));
+                    foreach (IWebElement element in ElementsListID)
+                    {
+                        we.AllMatchingResults.Add(element);
+                        count = count + 1;
+                    }
+                    break;
+                case "class":
+                    IReadOnlyList<IWebElement> ElementsListClass = WebDriver.FindElements(By.ClassName(we.Selector));
+                    foreach (IWebElement element in ElementsListClass)
+                    {
+                        we.AllMatchingResults.Add(element);
+                        count = count + 1;
+                    }
+                    break;
+                case "name":
+                    IReadOnlyList<IWebElement> ElementsListName = WebDriver.FindElements(By.Name(we.Selector));
+                    foreach (IWebElement element in ElementsListName)
+                    {
+                        we.AllMatchingResults.Add(element);
+                        count = count + 1;
+                    }
+                    break;
+                case "css":
+                    IReadOnlyList<IWebElement> ElementsListCss = WebDriver.FindElements(By.CssSelector(we.Selector));
+                    foreach (IWebElement element in ElementsListCss)
+                    {
+                        we.AllMatchingResults.Add(element);
+                        count = count + 1;
+                    }
+                    break;
+                case "xpath":
+                    IReadOnlyList<IWebElement> ElementsListXpath = WebDriver.FindElements(By.XPath(we.Selector));
+                    foreach (IWebElement element in ElementsListXpath)
+                    {
+                        we.AllMatchingResults.Add(element);
+                        count = count + 1;
+                    }
+                    break;
+                case "linktext":
+                    IReadOnlyList<IWebElement> ElementsListLinkText = WebDriver.FindElements(By.LinkText(we.Selector));
+                    foreach (IWebElement element in ElementsListLinkText)
+                    {
+                        we.AllMatchingResults.Add(element);
+                        count = count + 1;
+                    }
+                    break;
+            }
+            we.CountMatchingElements();
+            testElement = we;
+            return we;
+        }
+
+
+
         public bool SearchUntilElementIsPresent(WebElement we)
         {
             we.AllMatchingResults.Clear();

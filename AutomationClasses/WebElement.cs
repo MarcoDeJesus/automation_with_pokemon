@@ -10,7 +10,7 @@ namespace PageObjects
         public string Selector;
         public string SelectorMethod;
         public List<IWebElement> AllMatchingResults = new List<IWebElement>();
-        public int AmountElements { get; private set; }
+        public int AmountElements { get; private set; } = 0;
 
 
         public WebElement()
@@ -20,70 +20,19 @@ namespace PageObjects
         }
 
 
+        public void ResetElement()
+        {
+            AllMatchingResults.Clear();
+            AmountElements = 0;
+        }
+
+
         public WebElement(string selector, string selectorMethod)
         {
             Selector = selector;
             SelectorMethod = selectorMethod;
         }
 
-        public void SearchForThisElement(IWebDriver driver)
-        {
-            AllMatchingResults.Clear();
-            int count = 0;
-            WebPage genericPage = new WebPage(driver);
-            switch (SelectorMethod.ToLower())
-            {
-                case "id":
-                    IReadOnlyList<IWebElement> ElementsListID = genericPage.WebDriver.FindElements(By.Id(Selector));
-                    foreach (IWebElement element in ElementsListID)
-                    {
-                        AllMatchingResults.Add(element);
-                        count = count + 1;
-                    }
-                    break;
-                case "class":
-                    IReadOnlyList<IWebElement> ElementsListClass = genericPage.WebDriver.FindElements(By.ClassName(Selector));
-                    foreach (IWebElement element in ElementsListClass)
-                    {
-                        AllMatchingResults.Add(element);
-                        count = count + 1;
-                    }
-                    break;
-                case "name":
-                    IReadOnlyList<IWebElement> ElementsListName = genericPage.WebDriver.FindElements(By.Name(Selector));
-                    foreach (IWebElement element in ElementsListName)
-                    {
-                        AllMatchingResults.Add(element);
-                        count = count + 1;
-                    }
-                    break;
-                case "css":
-                    IReadOnlyList<IWebElement> ElementsListCss = genericPage.WebDriver.FindElements(By.CssSelector(Selector));
-                    foreach (IWebElement element in ElementsListCss)
-                    {
-                        AllMatchingResults.Add(element);
-                        count = count + 1;
-                    }
-                    break;
-                case "xpath":
-                    IReadOnlyList<IWebElement> ElementsListXpath = genericPage.WebDriver.FindElements(By.XPath(Selector));
-                    foreach (IWebElement element in ElementsListXpath)
-                    {
-                        AllMatchingResults.Add(element);
-                        count = count + 1;
-                    }
-                    break;
-                case "linktext":
-                    IReadOnlyList<IWebElement> ElementsListLinkText = genericPage.WebDriver.FindElements(By.LinkText(Selector));
-                    foreach (IWebElement element in ElementsListLinkText)
-                    {
-                        AllMatchingResults.Add(element);
-                        count = count + 1;
-                    }
-                    break;
-            }
-            AmountElements = count;
-        }
 
         public void CountMatchingElements()
         {
