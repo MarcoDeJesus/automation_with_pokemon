@@ -105,6 +105,31 @@ namespace AutomationATDD
             Assert.AreEqual(expectedEV, actualEV);
         }
 
+        [Test]
+        [TestCase(5, 509)]
+        [TestCase(6, 510)]
+        [TestCase(7, 504)]
+        public void ValidationForTotalEVPointsAllowed(int amount, int expectedEV)
+        {
+            EVManagement evObject = new EVManagement();
+            evObject.AddEVPointsToSpeed(252); //We allocate Maximum in Status 1
+            evObject.AddEVPointsToDefense(252); //We allocate Maximum in Status 2
+            evObject.AddEVPointsToAttack(amount); 
+            int actualEV = evObject.GetTotalEVPoints();
+            Assert.AreEqual(expectedEV, actualEV);
+        }
 
+
+        [Test]
+        public void ValidateEVResetWorks()
+        {
+            EVManagement evObject = new EVManagement();
+            evObject.AddEVPointsToSpeed(252); //We allocate Maximum in Status 1
+            evObject.AddEVPointsToDefense(252); //We allocate Maximum in Status 2
+            evObject.AddEVPointsToAttack(6); //We allocate Maximum in Status 3
+            evObject.ResetEVPoints();
+            int actualEV = evObject.GetTotalEVPoints();
+            Assert.AreEqual(0, actualEV);
+        }
     }
 }
