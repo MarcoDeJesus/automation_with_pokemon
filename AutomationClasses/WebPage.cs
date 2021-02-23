@@ -136,7 +136,6 @@ namespace PageObjects
         public WebElement SearchForThisElement(WebElement we)
         {
             we.AllMatchingResults.Clear();
-            int count = 0;
             switch (we.SelectorMethod.ToLower())
             {
                 case "id":
@@ -144,7 +143,6 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListID)
                     {
                         we.AllMatchingResults.Add(element);
-                        count = count + 1;
                     }
                     break;
                 case "class":
@@ -152,7 +150,6 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListClass)
                     {
                         we.AllMatchingResults.Add(element);
-                        count = count + 1;
                     }
                     break;
                 case "name":
@@ -160,7 +157,6 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListName)
                     {
                         we.AllMatchingResults.Add(element);
-                        count = count + 1;
                     }
                     break;
                 case "css":
@@ -168,7 +164,6 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListCss)
                     {
                         we.AllMatchingResults.Add(element);
-                        count = count + 1;
                     }
                     break;
                 case "xpath":
@@ -176,7 +171,6 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListXpath)
                     {
                         we.AllMatchingResults.Add(element);
-                        count = count + 1;
                     }
                     break;
                 case "linktext":
@@ -184,7 +178,6 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListLinkText)
                     {
                         we.AllMatchingResults.Add(element);
-                        count = count + 1;
                     }
                     break;
             }
@@ -260,7 +253,6 @@ namespace PageObjects
         {
             we.AllMatchingResults.Clear();
             int timer = 0;
-            WebPage genericPage = new WebPage(WebDriver);
             bool isDisplayed = false;
             int cycles = explicitWait * 1000 / milisecondsInterval;
             switch (we.SelectorMethod.ToLower())
@@ -268,7 +260,7 @@ namespace PageObjects
                 case "id":
                     while(timer < cycles)
                     {
-                        IReadOnlyList<IWebElement> ElementsListID = genericPage.WebDriver.FindElements(By.Id(we.Selector));
+                        IReadOnlyList<IWebElement> ElementsListID = WebDriver.FindElements(By.Id(we.Selector));
                         foreach (IWebElement element in ElementsListID)
                         {
                             we.AllMatchingResults.Add(element);
@@ -289,7 +281,7 @@ namespace PageObjects
                 case "class":
                     while (timer < cycles)
                     {
-                        IReadOnlyList<IWebElement> ElementsListID = genericPage.WebDriver.FindElements(By.ClassName(we.Selector));
+                        IReadOnlyList<IWebElement> ElementsListID = WebDriver.FindElements(By.ClassName(we.Selector));
                         foreach (IWebElement element in ElementsListID)
                         {
                             we.AllMatchingResults.Add(element);
@@ -310,7 +302,7 @@ namespace PageObjects
                 case "name":
                     while (timer < cycles)
                     {
-                        IReadOnlyList<IWebElement> ElementsListID = genericPage.WebDriver.FindElements(By.Name(we.Selector));
+                        IReadOnlyList<IWebElement> ElementsListID = WebDriver.FindElements(By.Name(we.Selector));
                         foreach (IWebElement element in ElementsListID)
                         {
                             we.AllMatchingResults.Add(element);
@@ -331,7 +323,7 @@ namespace PageObjects
                 case "css":
                     while (timer < cycles)
                     {
-                        IReadOnlyList<IWebElement> ElementsListID = genericPage.WebDriver.FindElements(By.CssSelector(we.Selector));
+                        IReadOnlyList<IWebElement> ElementsListID = WebDriver.FindElements(By.CssSelector(we.Selector));
                         foreach (IWebElement element in ElementsListID)
                         {
                             we.AllMatchingResults.Add(element);
@@ -352,7 +344,7 @@ namespace PageObjects
                 case "xpath":
                     while (timer < cycles)
                     {
-                        IReadOnlyList<IWebElement> ElementsListID = genericPage.WebDriver.FindElements(By.XPath(we.Selector));
+                        IReadOnlyList<IWebElement> ElementsListID = WebDriver.FindElements(By.XPath(we.Selector));
                         foreach (IWebElement element in ElementsListID)
                         {
                             we.AllMatchingResults.Add(element);
@@ -373,7 +365,7 @@ namespace PageObjects
                 case "linktext":
                     while (timer < cycles)
                     {
-                        IReadOnlyList<IWebElement> ElementsListID = genericPage.WebDriver.FindElements(By.LinkText(we.Selector));
+                        IReadOnlyList<IWebElement> ElementsListID = WebDriver.FindElements(By.LinkText(we.Selector));
                         foreach (IWebElement element in ElementsListID)
                         {
                             we.AllMatchingResults.Add(element);
