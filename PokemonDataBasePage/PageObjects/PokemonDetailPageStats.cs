@@ -25,48 +25,48 @@ namespace PageObjects
         public WebElement FindHPBaseStatusData()
         {
             TabBasicContainer = _webPage.SearchForThisElement(TabBasicContainer);
-            TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
-            TabBasicContainer_StatsContainer_BaseStatHP = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatHP);
+            TabBasicContainer_StatsContainer = _webPage.SearchForAnElementInsideThisElement(TabBasicContainer, TabBasicContainer_StatsContainer);
+            TabBasicContainer_StatsContainer_BaseStatHP = _webPage.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer, TabBasicContainer_StatsContainer_BaseStatHP);
             return TabBasicContainer_StatsContainer_BaseStatHP;
         }
 
         public WebElement FindAttackBaseStatusData()
         {
             TabBasicContainer = _webPage.SearchForThisElement(TabBasicContainer);
-            TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
-            TabBasicContainer_StatsContainer_BaseStatAttack = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatAttack);
+            TabBasicContainer_StatsContainer = _webPage.SearchForAnElementInsideThisElement(TabBasicContainer, TabBasicContainer_StatsContainer);
+            TabBasicContainer_StatsContainer_BaseStatAttack = _webPage.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer, TabBasicContainer_StatsContainer_BaseStatAttack);
             return TabBasicContainer_StatsContainer_BaseStatAttack;
         }
 
         public WebElement FindDefenseBaseStatusData()
         {
             TabBasicContainer = _webPage.SearchForThisElement(TabBasicContainer);
-            TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
-            TabBasicContainer_StatsContainer_BaseStatDefense = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatDefense);
+            TabBasicContainer_StatsContainer = _webPage.SearchForAnElementInsideThisElement(TabBasicContainer, TabBasicContainer_StatsContainer);
+            TabBasicContainer_StatsContainer_BaseStatDefense = _webPage.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer, TabBasicContainer_StatsContainer_BaseStatDefense);
             return TabBasicContainer_StatsContainer_BaseStatDefense;
         }
 
         public WebElement FindSpAttackBaseStatusData()
         {
             TabBasicContainer = _webPage.SearchForThisElement(TabBasicContainer);
-            TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
-            TabBasicContainer_StatsContainer_BaseStatSpAttack = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatSpAttack);
+            TabBasicContainer_StatsContainer = _webPage.SearchForAnElementInsideThisElement(TabBasicContainer, TabBasicContainer_StatsContainer);
+            TabBasicContainer_StatsContainer_BaseStatSpAttack = _webPage.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer, TabBasicContainer_StatsContainer_BaseStatSpAttack);
             return TabBasicContainer_StatsContainer_BaseStatSpAttack;
         }
 
         public WebElement FindSpDefenseBaseStatusData()
         {
             TabBasicContainer = _webPage.SearchForThisElement(TabBasicContainer);
-            TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
-            TabBasicContainer_StatsContainer_BaseStatSpDefense = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatSpDefense);
+            TabBasicContainer_StatsContainer = _webPage.SearchForAnElementInsideThisElement(TabBasicContainer, TabBasicContainer_StatsContainer);
+            TabBasicContainer_StatsContainer_BaseStatSpDefense = _webPage.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer, TabBasicContainer_StatsContainer_BaseStatSpDefense);
             return TabBasicContainer_StatsContainer_BaseStatSpDefense;
         }
 
         public WebElement FindSpeedBaseStatusData()
         {
             TabBasicContainer = _webPage.SearchForThisElement(TabBasicContainer);
-            TabBasicContainer_StatsContainer = TabBasicContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer);
-            TabBasicContainer_StatsContainer_BaseStatSpeed = TabBasicContainer_StatsContainer.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer_BaseStatSpeed);
+            TabBasicContainer_StatsContainer = _webPage.SearchForAnElementInsideThisElement(TabBasicContainer, TabBasicContainer_StatsContainer);
+            TabBasicContainer_StatsContainer_BaseStatSpeed = _webPage.SearchForAnElementInsideThisElement(TabBasicContainer_StatsContainer, TabBasicContainer_StatsContainer_BaseStatSpeed);
             return TabBasicContainer_StatsContainer_BaseStatSpeed;
         }
 
