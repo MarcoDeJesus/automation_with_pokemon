@@ -25,6 +25,16 @@ namespace StatsManagement
             speed = 0;
         }
 
+        public void ResetEVPoints()
+        {
+            hp = 0;
+            attack = 0;
+            defense = 0;
+            specialAttack = 0;
+            specialDefense = 0;
+            speed = 0;
+        }
+
         public int GetTotalEVPoints()
         {
             int total = hp + attack + defense + specialAttack + specialDefense + speed;
