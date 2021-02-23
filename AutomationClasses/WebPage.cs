@@ -136,7 +136,6 @@ namespace PageObjects
         public WebElement SearchForThisElement(WebElement we)
         {
             we.AllMatchingResults.Clear();
-            int count = 0;
             switch (we.SelectorMethod.ToLower())
             {
                 case "id":
@@ -144,7 +143,6 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListID)
                     {
                         we.AllMatchingResults.Add(element);
-                        count = count + 1;
                     }
                     break;
                 case "class":
@@ -152,7 +150,6 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListClass)
                     {
                         we.AllMatchingResults.Add(element);
-                        count = count + 1;
                     }
                     break;
                 case "name":
@@ -160,7 +157,6 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListName)
                     {
                         we.AllMatchingResults.Add(element);
-                        count = count + 1;
                     }
                     break;
                 case "css":
@@ -168,7 +164,6 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListCss)
                     {
                         we.AllMatchingResults.Add(element);
-                        count = count + 1;
                     }
                     break;
                 case "xpath":
@@ -176,7 +171,6 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListXpath)
                     {
                         we.AllMatchingResults.Add(element);
-                        count = count + 1;
                     }
                     break;
                 case "linktext":
@@ -184,7 +178,6 @@ namespace PageObjects
                     foreach (IWebElement element in ElementsListLinkText)
                     {
                         we.AllMatchingResults.Add(element);
-                        count = count + 1;
                     }
                     break;
             }
