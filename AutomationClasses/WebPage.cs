@@ -133,6 +133,19 @@ namespace PageObjects
         }
 
 
+        public WebElement MoveIntoViewToThisElement(WebElement we)
+        {
+            SearchForThisElement(we);
+            if (we.AmountElements == 1)
+            {
+                Actions actions = NewActionsObject();
+                actions.MoveToElement(we.AllMatchingResults[0]);
+                actions.Perform();
+            }
+            return we;
+        }
+
+
         public WebElement SearchForThisElement(WebElement we)
         {
             we.AllMatchingResults.Clear();

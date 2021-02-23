@@ -89,24 +89,7 @@ namespace PageObjects
         {
             string link = "/pokedex/" + Name.ToLower();
             SpecificPokemonTile = new WebElement("a.ent-name[href='" + link + "']", "css");
-            SpecificPokemonTile = _webPage.SearchForThisElement(SpecificPokemonTile);
-            if (SpecificPokemonTile.AllMatchingResults.Count == 1)
-            {
-                Actions actions = _webPage.NewActionsObject();
-                actions.MoveToElement(SpecificPokemonTile.AllMatchingResults[0]);
-                actions.Perform();
-            }
-            return SpecificPokemonTile;
-        }
-
-        public WebElement MoveIntoViewToTile()
-        {
-            if (SpecificPokemonTile.AllMatchingResults.Count == 1)
-            {
-                Actions actions = _webPage.NewActionsObject();
-                actions.MoveToElement(SpecificPokemonTile.AllMatchingResults[0]);
-                actions.Perform();
-            }
+            SpecificPokemonTile = _webPage.MoveIntoViewToThisElement(SpecificPokemonTile);
             return SpecificPokemonTile;
         }
 
