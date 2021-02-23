@@ -194,6 +194,67 @@ namespace PageObjects
         }
 
 
+        public WebElement SearchForAnElementInsideThisElement(WebElement parentElement, WebElement childElement)
+        {
+            SearchForThisElement(parentElement);
+            if (parentElement.AmountElements == 1)
+            {
+                switch (childElement.SelectorMethod.ToLower())
+                {
+                    case "id":
+                        IReadOnlyList<IWebElement> ElementsListID = parentElement.AllMatchingResults[0].FindElements(By.Id(childElement.Selector));
+                        foreach (IWebElement element in ElementsListID)
+                        {
+                            childElement.AllMatchingResults.Add(element);
+                        }
+                        childElement.CountMatchingElements();
+                        break;
+                    case "class":
+                        IReadOnlyList<IWebElement> ElementsListClass = parentElement.AllMatchingResults[0].FindElements(By.ClassName(childElement.Selector));
+                        foreach (IWebElement element in ElementsListClass)
+                        {
+                            childElement.AllMatchingResults.Add(element);
+                        }
+                        childElement.CountMatchingElements();
+                        break;
+                    case "name":
+                        IReadOnlyList<IWebElement> ElementsListName = parentElement.AllMatchingResults[0].FindElements(By.Name(childElement.Selector));
+                        foreach (IWebElement element in ElementsListName)
+                        {
+                            childElement.AllMatchingResults.Add(element);
+                        }
+                        childElement.CountMatchingElements();
+                        break;
+                    case "css":
+                        IReadOnlyList<IWebElement> ElementsListCss = parentElement.AllMatchingResults[0].FindElements(By.CssSelector(childElement.Selector));
+                        foreach (IWebElement element in ElementsListCss)
+                        {
+                            childElement.AllMatchingResults.Add(element);
+                        }
+                        childElement.CountMatchingElements();
+                        break;
+                    case "xpath":
+                        IReadOnlyList<IWebElement> ElementsListXpath = parentElement.AllMatchingResults[0].FindElements(By.XPath(childElement.Selector));
+                        foreach (IWebElement element in ElementsListXpath)
+                        {
+                            childElement.AllMatchingResults.Add(element);
+                        }
+                        childElement.CountMatchingElements();
+                        break;
+                    case "linktext":
+                        IReadOnlyList<IWebElement> ElementsListLinkText = parentElement.AllMatchingResults[0].FindElements(By.LinkText(childElement.Selector));
+                        foreach (IWebElement element in ElementsListLinkText)
+                        {
+                            childElement.AllMatchingResults.Add(element);
+                        }
+                        childElement.CountMatchingElements();
+                        break;
+                }
+            }
+            testElement = childElement;
+            return childElement;
+        }
+
 
         public bool SearchUntilElementIsPresent(WebElement we)
         {

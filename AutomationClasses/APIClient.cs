@@ -12,6 +12,11 @@ namespace APIClients
         public string RequestURI;
         public string BearerToken;
 
+        public APIClient(string token)
+        {
+            BearerToken = token;
+        }
+
         public APIClient()
         {
         }
