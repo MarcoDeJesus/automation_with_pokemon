@@ -16,6 +16,13 @@ namespace StatsManagement
         public int specialDefense { get; private set; }
         public int speed { get; private set; }
 
+        public bool hpRandom { get; private set; } = false;
+        public bool attackRandom { get; private set; } = false;
+        public bool defenseRandom { get; private set; } = false;
+        public bool specialAttackRandom { get; private set; } = false;
+        public bool specialDefenseRandom { get; private set; } = false;
+        public bool speedRandom { get; private set; } = false;
+
         public IVManagement()
         {
             hp = GenerateRandomIVValue();
@@ -24,6 +31,12 @@ namespace StatsManagement
             specialAttack = GenerateRandomIVValue();
             specialDefense = GenerateRandomIVValue();
             speed = GenerateRandomIVValue();
+            hpRandom = true;
+            attackRandom = true;
+            defenseRandom = true;
+            specialAttackRandom = true;
+            specialDefenseRandom = true;
+            speedRandom = true;
         }
 
 
@@ -38,6 +51,7 @@ namespace StatsManagement
                 else
                 {
                     hp = GenerateRandomIVValue();
+                    hpRandom = true;
                 }
                 if (_attack)
                 {
@@ -46,6 +60,7 @@ namespace StatsManagement
                 else
                 {
                     attack = GenerateRandomIVValue();
+                    attackRandom = true;
                 }
                 if (_defense)
                 {
@@ -54,6 +69,7 @@ namespace StatsManagement
                 else
                 {
                     defense = GenerateRandomIVValue();
+                    defenseRandom = true;
                 }
                 if (_specialA)
                 {
@@ -62,6 +78,7 @@ namespace StatsManagement
                 else
                 {
                     specialAttack = GenerateRandomIVValue();
+                    specialAttackRandom = true;
                 }
                 if (_specialDef)
                 {
@@ -70,6 +87,7 @@ namespace StatsManagement
                 else
                 {
                     specialDefense = GenerateRandomIVValue();
+                    specialDefenseRandom = true;
                 }
                 if (_speed)
                 {
@@ -78,6 +96,7 @@ namespace StatsManagement
                 else
                 {
                     speed = GenerateRandomIVValue();
+                    speedRandom = true;
                 }
             }
             else
@@ -88,6 +107,12 @@ namespace StatsManagement
                 specialAttack = GenerateRandomIVValue();
                 specialDefense = GenerateRandomIVValue();
                 speed = GenerateRandomIVValue();
+                hpRandom = true;
+                attackRandom = true;
+                defenseRandom = true;
+                specialAttackRandom = true;
+                specialDefenseRandom = true;
+                speedRandom = true;
             }
 
         }
@@ -111,6 +136,12 @@ namespace StatsManagement
                 specialAttack = GenerateRandomIVValue();
                 specialDefense = GenerateRandomIVValue();
                 speed = GenerateRandomIVValue();
+                hpRandom = true;
+                attackRandom = true;
+                defenseRandom = true;
+                specialAttackRandom = true;
+                specialDefenseRandom = true;
+                speedRandom = true;
             }
         }
 
