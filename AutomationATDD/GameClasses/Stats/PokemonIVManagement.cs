@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using StatsManagement;
+using System.Collections.Generic;
 
 namespace AutomationATDD
 {
@@ -64,6 +65,39 @@ namespace AutomationATDD
             Assert.That(speed, Is.LessThanOrEqualTo(31));
             Assert.AreEqual(ivObject.speedRandom, true);
         }
+
+        [Test]
+        [TestCase(-1, true)]
+        [TestCase(0, false)]
+        [TestCase(30, false)]
+        [TestCase(31, false)]
+        [TestCase(32, true)]
+        public void TestingContructorWithListOfValues_HP_Randomnization(int hp, bool isRandom)
+        {
+            List<int> listIVs = new List<int> { hp, 1, 1, 1, 1, 1 };
+            IVManagement ivObject = new IVManagement(listIVs);
+            int actualHP = ivObject.hp;
+            Assert.That(actualHP, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(actualHP, Is.LessThanOrEqualTo(31));
+            Assert.AreEqual(ivObject.speedRandom, isRandom);
+        }
+
+        [Test]
+        [TestCase(-1, true)]
+        [TestCase(0, false)]
+        [TestCase(30, false)]
+        [TestCase(31, false)]
+        [TestCase(32, true)]
+        public void TestingContructorWithListOfValues_Attack_Randomnization(int att, bool isRandom)
+        {
+            List<int> listIVs = new List<int> { 1, att, 1, 1, 1, 1 };
+            IVManagement ivObject = new IVManagement(listIVs);
+            int actualAttack = ivObject.attack;
+            Assert.That(actualAttack, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(actualAttack, Is.LessThanOrEqualTo(31));
+            Assert.AreEqual(ivObject.attackRandom, isRandom);
+        }
+
 
     }
 }
