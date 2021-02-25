@@ -166,6 +166,27 @@ namespace AutomationATDD
             Assert.AreEqual(ivObject.speedRandom, isRandom);
         }
 
+        [Test]
+        [TestCase(7, true)]
+        [TestCase(6, false)]
+        [TestCase(5, true)]
+        public void ValidateThatConstructorWithArrayAcceptsTheValidAmnountOfValues(int par, bool isRandom)
+        {
+            int cont = 1;
+            List<int> listIVs = new List<int>();
+            while (cont <= par)
+            {
+                listIVs.Add(31);
+                cont = cont + 1;
+            }
+            IVManagement ivObject = new IVManagement(listIVs);
+            Assert.AreEqual(ivObject.hpRandom, isRandom);
+            Assert.AreEqual(ivObject.attackRandom, isRandom);
+            Assert.AreEqual(ivObject.defenseRandom, isRandom);
+            Assert.AreEqual(ivObject.specialAttackRandom, isRandom);
+            Assert.AreEqual(ivObject.specialDefenseRandom, isRandom);
+            Assert.AreEqual(ivObject.speedRandom, isRandom);
+        }
 
     }
 }
