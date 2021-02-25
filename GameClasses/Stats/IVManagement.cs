@@ -161,7 +161,7 @@ namespace StatsManagement
             {
                 foreach (int i in values)
                 {
-                    if (i >= 0 || i <= 31)
+                    if (i >= 0 && i <= 31)
                     {
                         results = true;
                     }
