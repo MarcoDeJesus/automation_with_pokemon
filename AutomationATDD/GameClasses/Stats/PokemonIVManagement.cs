@@ -72,13 +72,13 @@ namespace AutomationATDD
         [TestCase(30, false)]
         [TestCase(31, false)]
         [TestCase(32, true)]
-        public void TestingContructorWithListOfValues_HP_Randomnization(int hp, bool isRandom)
+        public void TestingContructorWithListOfValues_HP_Randomnization(int par, bool isRandom)
         {
-            List<int> listIVs = new List<int> { hp, 1, 1, 1, 1, 1 };
+            List<int> listIVs = new List<int> { par, 1, 1, 1, 1, 1 };
             IVManagement ivObject = new IVManagement(listIVs);
-            int actualHP = ivObject.hp;
-            Assert.That(actualHP, Is.GreaterThanOrEqualTo(-1));
-            Assert.That(actualHP, Is.LessThanOrEqualTo(31));
+            int hp = ivObject.hp;
+            Assert.That(hp, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(hp, Is.LessThanOrEqualTo(31));
             Assert.AreEqual(ivObject.speedRandom, isRandom);
         }
 
@@ -88,14 +88,82 @@ namespace AutomationATDD
         [TestCase(30, false)]
         [TestCase(31, false)]
         [TestCase(32, true)]
-        public void TestingContructorWithListOfValues_Attack_Randomnization(int att, bool isRandom)
+        public void TestingContructorWithListOfValues_Attack_Randomnization(int par, bool isRandom)
         {
-            List<int> listIVs = new List<int> { 1, att, 1, 1, 1, 1 };
+            List<int> listIVs = new List<int> { 1, par, 1, 1, 1, 1 };
             IVManagement ivObject = new IVManagement(listIVs);
-            int actualAttack = ivObject.attack;
-            Assert.That(actualAttack, Is.GreaterThanOrEqualTo(-1));
-            Assert.That(actualAttack, Is.LessThanOrEqualTo(31));
+            int attack = ivObject.attack;
+            Assert.That(attack, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(attack, Is.LessThanOrEqualTo(31));
             Assert.AreEqual(ivObject.attackRandom, isRandom);
+        }
+
+        [Test]
+        [TestCase(-1, true)]
+        [TestCase(0, false)]
+        [TestCase(30, false)]
+        [TestCase(31, false)]
+        [TestCase(32, true)]
+        public void TestingContructorWithListOfValues_Defense_Randomnization(int par, bool isRandom)
+        {
+            List<int> listIVs = new List<int> { 1, 1, par, 1, 1, 1 };
+            IVManagement ivObject = new IVManagement(listIVs);
+            int defense = ivObject.defense;
+            Assert.That(defense, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(defense, Is.LessThanOrEqualTo(31));
+            Assert.AreEqual(ivObject.defenseRandom, isRandom);
+        }
+
+
+        [Test]
+        [TestCase(-1, true)]
+        [TestCase(0, false)]
+        [TestCase(30, false)]
+        [TestCase(31, false)]
+        [TestCase(32, true)]
+        public void TestingContructorWithListOfValues_SpecialAttack_Randomnization(int par, bool isRandom)
+        {
+            List<int> listIVs = new List<int> { 1, 1, 1, par, 1, 1 };
+            IVManagement ivObject = new IVManagement(listIVs);
+            int specialAttack = ivObject.specialAttack;
+            Assert.That(specialAttack, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(specialAttack, Is.LessThanOrEqualTo(31));
+            Assert.AreEqual(ivObject.specialAttackRandom, isRandom);
+        }
+
+
+        [Test]
+        [TestCase(-1, true)]
+        [TestCase(0, false)]
+        [TestCase(30, false)]
+        [TestCase(31, false)]
+        [TestCase(32, true)]
+        public void TestingContructorWithListOfValues_SpecialDefense_Randomnization(int par, bool isRandom)
+        {
+            List<int> listIVs = new List<int> { 1, 1, 1, 1, par, 1 };
+            IVManagement ivObject = new IVManagement(listIVs);
+            int specialDefense = ivObject.specialDefense;
+            Assert.That(specialDefense, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(specialDefense, Is.LessThanOrEqualTo(31));
+            Assert.AreEqual(ivObject.specialDefenseRandom, isRandom);
+        }
+
+
+
+        [Test]
+        [TestCase(-1, true)]
+        [TestCase(0, false)]
+        [TestCase(30, false)]
+        [TestCase(31, false)]
+        [TestCase(32, true)]
+        public void TestingContructorWithListOfValues_Speed_Randomnization(int par, bool isRandom)
+        {
+            List<int> listIVs = new List<int> { 1, 1, 1, 1, 1, par };
+            IVManagement ivObject = new IVManagement(listIVs);
+            int speed = ivObject.speed;
+            Assert.That(speed, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(speed, Is.LessThanOrEqualTo(31));
+            Assert.AreEqual(ivObject.speedRandom, isRandom);
         }
 
 
