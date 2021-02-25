@@ -11,7 +11,7 @@ namespace AutomationATDD
         {
             IVManagement ivObject = new IVManagement();
             int hp = ivObject.hp;
-            Assert.That(hp, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(hp, Is.GreaterThanOrEqualTo(0));
             Assert.That(hp, Is.LessThanOrEqualTo(31));
             Assert.AreEqual(ivObject.hpRandom, true);
         }
@@ -21,7 +21,7 @@ namespace AutomationATDD
         {
             IVManagement ivObject = new IVManagement();
             int attack = ivObject.attack;
-            Assert.That(attack, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(attack, Is.GreaterThanOrEqualTo(0));
             Assert.That(attack, Is.LessThanOrEqualTo(31));
             Assert.AreEqual(ivObject.attackRandom, true);
         }
@@ -31,7 +31,7 @@ namespace AutomationATDD
         {
             IVManagement ivObject = new IVManagement();
             int defense = ivObject.defense;
-            Assert.That(defense, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(defense, Is.GreaterThanOrEqualTo(0));
             Assert.That(defense, Is.LessThanOrEqualTo(31));
             Assert.AreEqual(ivObject.defenseRandom, true);
         }
@@ -41,7 +41,7 @@ namespace AutomationATDD
         {
             IVManagement ivObject = new IVManagement();
             int specialAttack = ivObject.specialAttack;
-            Assert.That(specialAttack, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(specialAttack, Is.GreaterThanOrEqualTo(0));
             Assert.That(specialAttack, Is.LessThanOrEqualTo(31));
             Assert.AreEqual(ivObject.specialAttackRandom, true);
         }
@@ -51,7 +51,7 @@ namespace AutomationATDD
         {
             IVManagement ivObject = new IVManagement();
             int specialDefense = ivObject.specialDefense;
-            Assert.That(specialDefense, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(specialDefense, Is.GreaterThanOrEqualTo(0));
             Assert.That(specialDefense, Is.LessThanOrEqualTo(31));
             Assert.AreEqual(ivObject.specialDefenseRandom, true);
         }
@@ -61,7 +61,7 @@ namespace AutomationATDD
         {
             IVManagement ivObject = new IVManagement();
             int speed = ivObject.speed;
-            Assert.That(speed, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(speed, Is.GreaterThanOrEqualTo(0));
             Assert.That(speed, Is.LessThanOrEqualTo(31));
             Assert.AreEqual(ivObject.speedRandom, true);
         }
@@ -77,7 +77,7 @@ namespace AutomationATDD
             List<int> listIVs = new List<int> { par, 1, 1, 1, 1, 1 };
             IVManagement ivObject = new IVManagement(listIVs);
             int hp = ivObject.hp;
-            Assert.That(hp, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(hp, Is.GreaterThanOrEqualTo(0));
             Assert.That(hp, Is.LessThanOrEqualTo(31));
             Assert.AreEqual(ivObject.speedRandom, isRandom);
         }
@@ -93,7 +93,7 @@ namespace AutomationATDD
             List<int> listIVs = new List<int> { 1, par, 1, 1, 1, 1 };
             IVManagement ivObject = new IVManagement(listIVs);
             int attack = ivObject.attack;
-            Assert.That(attack, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(attack, Is.GreaterThanOrEqualTo(0));
             Assert.That(attack, Is.LessThanOrEqualTo(31));
             Assert.AreEqual(ivObject.attackRandom, isRandom);
         }
@@ -109,7 +109,7 @@ namespace AutomationATDD
             List<int> listIVs = new List<int> { 1, 1, par, 1, 1, 1 };
             IVManagement ivObject = new IVManagement(listIVs);
             int defense = ivObject.defense;
-            Assert.That(defense, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(defense, Is.GreaterThanOrEqualTo(0));
             Assert.That(defense, Is.LessThanOrEqualTo(31));
             Assert.AreEqual(ivObject.defenseRandom, isRandom);
         }
@@ -126,7 +126,7 @@ namespace AutomationATDD
             List<int> listIVs = new List<int> { 1, 1, 1, par, 1, 1 };
             IVManagement ivObject = new IVManagement(listIVs);
             int specialAttack = ivObject.specialAttack;
-            Assert.That(specialAttack, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(specialAttack, Is.GreaterThanOrEqualTo(0));
             Assert.That(specialAttack, Is.LessThanOrEqualTo(31));
             Assert.AreEqual(ivObject.specialAttackRandom, isRandom);
         }
@@ -143,7 +143,7 @@ namespace AutomationATDD
             List<int> listIVs = new List<int> { 1, 1, 1, 1, par, 1 };
             IVManagement ivObject = new IVManagement(listIVs);
             int specialDefense = ivObject.specialDefense;
-            Assert.That(specialDefense, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(specialDefense, Is.GreaterThanOrEqualTo(0));
             Assert.That(specialDefense, Is.LessThanOrEqualTo(31));
             Assert.AreEqual(ivObject.specialDefenseRandom, isRandom);
         }
@@ -161,7 +161,7 @@ namespace AutomationATDD
             List<int> listIVs = new List<int> { 1, 1, 1, 1, 1, par };
             IVManagement ivObject = new IVManagement(listIVs);
             int speed = ivObject.speed;
-            Assert.That(speed, Is.GreaterThanOrEqualTo(-1));
+            Assert.That(speed, Is.GreaterThanOrEqualTo(0));
             Assert.That(speed, Is.LessThanOrEqualTo(31));
             Assert.AreEqual(ivObject.speedRandom, isRandom);
         }
