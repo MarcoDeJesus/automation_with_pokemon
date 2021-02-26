@@ -13,19 +13,21 @@ namespace PokemonAPI
             URL = APIURL;
         }
 
-        public IRestResponse RetrievePokemonInformation(string PokemonName)
+        public IRestResponse RetrievePokemonInformation(string pokemonName)
         {
-            string URI = "api/v2/pokemon/"+PokemonName.ToLower();
-            APIClient APIClientObject = new APIClient();
-            IRestResponse ResponseObject = APIClientObject.ExecuteGETCall(URL, URI);
+            string URI = "api/v2/pokemon/"+ pokemonName.ToLower();
+            APIClient _api = new APIClient(URL, URI, "get");
+            _api.AddHeaderToRequest("Accept", "application/json, text/plain, */*");
+            IRestResponse ResponseObject = _api.ExecuteAPICall();
             return ResponseObject;
         }
 
-        public IRestResponse RetrievePokemonInformation(int PokemonNumber)
+        public IRestResponse RetrievePokemonInformation(int pokemonNumber)
         {
-            string URI = "api/v2/pokemon/" + PokemonNumber.ToString();
-            APIClient APIClientObject = new APIClient();
-            IRestResponse ResponseObject = APIClientObject.ExecuteGETCall(URL, URI);
+            string URI = "api/v2/pokemon/" + pokemonNumber.ToString();
+            APIClient _api = new APIClient(URL, URI, "get");
+            _api.AddHeaderToRequest("Accept", "application/json, text/plain, */*");
+            IRestResponse ResponseObject = _api.ExecuteAPICall();
             return ResponseObject;
         }
 

@@ -6,95 +6,120 @@ namespace APIClients
 {
     public class APIClient
     {
-        public string RequestPayload;
-        public string RequestServerURL;
-        public string RequestMethod;
-        public string RequestURI;
-        public string BearerToken;
+        private string _targetURI;
+        private string _targetURL;
+        private IRestClient _clientAPI;
+        private IRestRequest _request;
+        private bool _requestReady = false;
 
-        public APIClient(string token)
-        {
-            BearerToken = token;
-        }
 
-        public APIClient()
-        {
-        }
 
-        public IRestResponse ExecuteGETCall(string URL, string URI)
+        public APIClient(string url, string uri)
         {
-            IRestClient Client;
-            Uri BaseURL = new Uri(URL);
-            Client = new RestClient(BaseURL);
-            IRestRequest Request = new RestRequest(URI, Method.GET);
-            Request.AddHeader("authorization", "Bearer " + BearerToken);
-            Request.AddHeader("Accept", "application/json, text/plain, */*");
-            IRestResponse RequestResponse = Client.Execute(Request);
-            return RequestResponse;
+            _targetURL = url;
+            _targetURI = uri;
+            Uri urlObj = new Uri(_targetURL);
+            IRestClient client = new RestClient(urlObj);
+            _clientAPI = client;
         }
 
 
-        public IRestResponse ExecutePOSTCall(string URL, string URI, string Payload)
+        public APIClient(string url, string uri, string method)
         {
-            IRestClient Client;
-            Uri BaseURL = new Uri(URL);
-            Client = new RestClient(BaseURL);
-            IRestRequest Request = new RestRequest(URI, Method.POST);
-            Request.AddHeader("authorization", "Bearer " + BearerToken);
-            Request.AddParameter("application/json; charset=utf-8", Payload, ParameterType.RequestBody);
-            Request.AddHeader("Accept", "application/json, text/plain, */*");
-            IRestResponse RequestResponse = Client.Execute(Request);
-            return RequestResponse;
+            _targetURL = url;
+            _targetURI = uri;
+            Uri urlObj = new Uri(_targetURL);
+            IRestClient client = new RestClient(urlObj);
+            _clientAPI = client;
+            switch (method.ToLower())
+            {
+                case "get":
+                    CreateGETRequest();
+                    break;
+                case "post":
+                    CreatePOSTRequest();
+                    break;
+                case "put":
+                    CreatePUTRequest();
+                    break;
+                case "delete":
+                    CreateDELETERequest();
+                    break;
+                default:
+                    CreateGETRequest();
+                    break;
+            }
         }
 
 
-        public IRestResponse ExecutePOSTCallNoAuthentication(string URL, string URI, string Payload)
+        public void ChangeRequestURI(string newURI)
         {
-            IRestClient Client;
-            Uri BaseURL = new Uri(URL);
-            Client = new RestClient(BaseURL);
-            IRestRequest Request = new RestRequest(URI, Method.POST);
-            Request.AddParameter("application/json; charset=utf-8", Payload, ParameterType.RequestBody);
-            Request.AddHeader("Accept", "application/json, text/plain, */*");
-            IRestResponse RequestResponse = Client.Execute(Request);
-            return RequestResponse;
+            _targetURI = newURI;
+            Uri urlObj = new Uri(_targetURL);
+            IRestClient client = new RestClient(urlObj);
+            _clientAPI = client;
+            _requestReady = false;
+    }
+
+
+        public void CreateGETRequest()
+        {
+            IRestRequest request = new RestRequest(_targetURI, Method.GET);
+            _request = request;
+            _requestReady = true;
+        }
+
+        public void CreatePOSTRequest()
+        {
+            IRestRequest request = new RestRequest(_targetURI, Method.POST);
+            _request = request;
+            _requestReady = true;
         }
 
 
-        public IRestResponse ExecutePOSTCallFromRawRequest(string URL, IRestRequest draftRequest)
+        public void CreatePUTRequest()
         {
-            IRestClient Client;
-            Uri BaseURL = new Uri(URL);
-            Client = new RestClient(BaseURL);
-            IRestRequest request = draftRequest;
-            IRestResponse RequestResponse = Client.Execute(request);
-            return RequestResponse;
+            IRestRequest request = new RestRequest(_targetURI, Method.PUT);
+            _request = request;
+            _requestReady = true;
         }
 
 
-        public IRestResponse ExecutePUTCall(string URL, string URI, string Payload)
+        public void CreateDELETERequest()
         {
-            IRestClient Client;
-            Uri BaseURL = new Uri(URL);
-            Client = new RestClient(BaseURL);
-            IRestRequest Request = new RestRequest(URI, Method.PUT);
-            Request.AddHeader("authorization", "Bearer " + BearerToken);
-            Request.AddParameter("application/json; charset=utf-8", Payload, ParameterType.RequestBody);
-            Request.AddHeader("Accept", "application/json, text/plain, */*");
-            IRestResponse RequestResponse = Client.Execute(Request);
-            return RequestResponse;
+            IRestRequest request = new RestRequest(_targetURI, Method.DELETE);
+            _request = request;
+            _requestReady = true;
         }
 
-        public IRestResponse ExecuteDELETECall(string URL, string URI)
+        public void AddHeaderToRequest(string key, string value)
         {
-            IRestClient Client;
-            Uri BaseURL = new Uri(URL);
-            Client = new RestClient(BaseURL);
-            IRestRequest Request = new RestRequest(URI, Method.DELETE);
-            Request.AddHeader("authorization", "Bearer " + BearerToken);
-            Request.AddHeader("Accept", "application/json, text/plain, */*");
-            IRestResponse RequestResponse = Client.Execute(Request);
-            return RequestResponse;
+            if (_requestReady)
+            {
+                _request.AddHeader(key, value);
+            }
+        }
+
+        public void AddJSONPayloadToRequest(string payload)
+        {
+            if (_requestReady)
+            {
+                _request.AddParameter("application/json; charset=utf-8", payload, ParameterType.RequestBody);
+            }
+        }
+
+        public void AddBearerTokenToRequest(string token)
+        {
+            if (_requestReady)
+            {
+                _request.AddHeader("authorization", "Bearer " + token);
+            }
+        }
+
+        public IRestResponse ExecuteAPICall()
+        {
+            IRestResponse response = _clientAPI.Execute(_request);
+            return response;
         }
 
     }
