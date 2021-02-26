@@ -16,9 +16,7 @@ namespace PokemonAPI
         public IRestResponse RetrievePokemonInformation(string PokemonName)
         {
             string URI = "api/v2/pokemon/"+PokemonName.ToLower();
-            APIClient aPIClientObject = new APIClient(URL);
-            aPIClientObject.SetThisURI(URI);
-            aPIClientObject.CreateGETRequest();
+            APIClient aPIClientObject = new APIClient(URL, URI, "get");
             aPIClientObject.AddHeaderToRequest("Accept", "application/json, text/plain, */*");
             IRestResponse ResponseObject = aPIClientObject.ExecuteAPICall();
             return ResponseObject;
@@ -27,9 +25,7 @@ namespace PokemonAPI
         public IRestResponse RetrievePokemonInformation(int PokemonNumber)
         {
             string URI = "api/v2/pokemon/" + PokemonNumber.ToString();
-            APIClient aPIClientObject = new APIClient(URL);
-            aPIClientObject.SetThisURI(URI);
-            aPIClientObject.CreateGETRequest();
+            APIClient aPIClientObject = new APIClient(URL, URI, "get");
             aPIClientObject.AddHeaderToRequest("Accept", "application/json, text/plain, */*");
             IRestResponse ResponseObject = aPIClientObject.ExecuteAPICall();
             return ResponseObject;

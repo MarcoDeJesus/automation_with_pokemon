@@ -6,38 +6,66 @@ namespace APIClients
 {
     public class APIClient
     {
-        public string targetURL = null;
-        public string targetURI = null;
-        private Uri _uriObject;
+        public string targetURI { get; private set; } = null;
         private IRestClient _clientAPI;
         private IRestRequest _request;
+        private bool _requestReady = false;
 
 
-        public APIClient(string url)
+
+        public APIClient(string url, string uri)
         {
-            targetURL = url;
-            Uri urlObj = new Uri(targetURL);
-            _uriObject = urlObj;
-        }
-
-
-        public void SetThisURI(string uri)
-        {
+            Uri urlObj = new Uri(url);
             targetURI = uri;
-            IRestClient client = new RestClient(_uriObject);
+            IRestClient client = new RestClient(urlObj);
             _clientAPI = client;
         }
+
+
+        public APIClient(string url, string uri, string method)
+        {
+            Uri urlObj = new Uri(url);
+            targetURI = uri;
+            IRestClient client = new RestClient(urlObj);
+            _clientAPI = client;
+            switch (method.ToLower())
+            {
+                case "get":
+                    CreateGETRequest();
+                    _requestReady = true;
+                    break;
+                case "post":
+                    CreatePOSTRequest();
+                    _requestReady = true;
+                    break;
+                case "put":
+                    CreatePUTRequest();
+                    _requestReady = true;
+                    break;
+                case "delete":
+                    CreateDELETERequest();
+                    _requestReady = true;
+                    break;
+                default:
+                    CreateGETRequest();
+                    _requestReady = true;
+                    break;
+            }
+        }
+
 
         public void CreateGETRequest()
         {
             IRestRequest request = new RestRequest(targetURI, Method.GET);
             _request = request;
+            _requestReady = true;
         }
 
         public void CreatePOSTRequest()
         {
             IRestRequest request = new RestRequest(targetURI, Method.POST);
             _request = request;
+            _requestReady = true;
         }
 
 
@@ -45,6 +73,7 @@ namespace APIClients
         {
             IRestRequest request = new RestRequest(targetURI, Method.PUT);
             _request = request;
+            _requestReady = true;
         }
 
 
@@ -52,22 +81,31 @@ namespace APIClients
         {
             IRestRequest request = new RestRequest(targetURI, Method.DELETE);
             _request = request;
+            _requestReady = true;
         }
 
         public void AddHeaderToRequest(string key, string value)
         {
-            _request.AddHeader(key, value);
+            if (_requestReady)
+            {
+                _request.AddHeader(key, value);
+            }
         }
 
         public void AddJSONPayloadToRequest(string payload)
         {
-
-            _request.AddParameter("application/json; charset=utf-8", payload, ParameterType.RequestBody);
+            if (_requestReady)
+            {
+                _request.AddParameter("application/json; charset=utf-8", payload, ParameterType.RequestBody);
+            }
         }
 
         public void AddBearerTokenToRequest(string token)
         {
-            _request.AddHeader("authorization", "Bearer " + token);
+            if (_requestReady)
+            {
+                _request.AddHeader("authorization", "Bearer " + token);
+            }
         }
 
         public IRestResponse ExecuteAPICall()
