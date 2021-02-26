@@ -10,6 +10,7 @@ namespace PageObjects
         public string Selector;
         public string SelectorMethod;
         public List<IWebElement> AllMatchingResults = new List<IWebElement>();
+        public string elementText = null;
         public int AmountElements { get; private set; } = 0;
 
 

@@ -22,7 +22,7 @@ namespace UIModules
         }
 
 
-        public void UserClicksNationalPokedexQuickLink ()
+        public void UserClicksNationalPokedexQuickLink()
         {
             PokemonDBHome HomePageObject = new PokemonDBHome(_wp);
             HomePageObject.ClickNationalDexLink();
@@ -36,7 +36,6 @@ namespace UIModules
             {
                 HomePageObject.ClickOKModalButton();
             }
-
         }
     }
 }

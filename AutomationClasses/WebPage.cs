@@ -46,6 +46,10 @@ namespace PageObjects
                     WebDriver = new FirefoxDriver();
                     //WebDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
                     break;
+                default:
+                    WebDriver = new ChromeDriver();
+                    break;
+
             }
         }
 
@@ -89,6 +93,20 @@ namespace PageObjects
             TimeOutSeconds = seconds;
             WebDriver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(seconds);
         }
+
+
+        public WebElement GetElementText(WebElement we)
+        {
+            SearchForThisElement(we);
+            we.elementText = null;
+            if (we.AmountElements == 1)
+            {
+                IWebElement Result = we.ReturnTheIWebElementInPosition(1);
+                we.elementText = Result.Text;
+            }
+            return we;
+        }
+
 
         public WebElement ClickElement(WebElement we)
         {
