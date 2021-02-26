@@ -6,7 +6,8 @@ namespace APIClients
 {
     public class APIClient
     {
-        public string targetURI { get; private set; } = null;
+        private string _targetURI;
+        private string _targetURL;
         private IRestClient _clientAPI;
         private IRestRequest _request;
         private bool _requestReady = false;
@@ -15,8 +16,9 @@ namespace APIClients
 
         public APIClient(string url, string uri)
         {
-            Uri urlObj = new Uri(url);
-            targetURI = uri;
+            _targetURL = url;
+            _targetURI = uri;
+            Uri urlObj = new Uri(_targetURL);
             IRestClient client = new RestClient(urlObj);
             _clientAPI = client;
         }
@@ -24,8 +26,9 @@ namespace APIClients
 
         public APIClient(string url, string uri, string method)
         {
-            Uri urlObj = new Uri(url);
-            targetURI = uri;
+            _targetURL = url;
+            _targetURI = uri;
+            Uri urlObj = new Uri(_targetURL);
             IRestClient client = new RestClient(urlObj);
             _clientAPI = client;
             switch (method.ToLower())
@@ -49,16 +52,26 @@ namespace APIClients
         }
 
 
+        public void ChangeRequestURI(string newURI)
+        {
+            _targetURI = newURI;
+            Uri urlObj = new Uri(_targetURL);
+            IRestClient client = new RestClient(urlObj);
+            _clientAPI = client;
+            _requestReady = false;
+    }
+
+
         public void CreateGETRequest()
         {
-            IRestRequest request = new RestRequest(targetURI, Method.GET);
+            IRestRequest request = new RestRequest(_targetURI, Method.GET);
             _request = request;
             _requestReady = true;
         }
 
         public void CreatePOSTRequest()
         {
-            IRestRequest request = new RestRequest(targetURI, Method.POST);
+            IRestRequest request = new RestRequest(_targetURI, Method.POST);
             _request = request;
             _requestReady = true;
         }
@@ -66,7 +79,7 @@ namespace APIClients
 
         public void CreatePUTRequest()
         {
-            IRestRequest request = new RestRequest(targetURI, Method.PUT);
+            IRestRequest request = new RestRequest(_targetURI, Method.PUT);
             _request = request;
             _requestReady = true;
         }
@@ -74,7 +87,7 @@ namespace APIClients
 
         public void CreateDELETERequest()
         {
-            IRestRequest request = new RestRequest(targetURI, Method.DELETE);
+            IRestRequest request = new RestRequest(_targetURI, Method.DELETE);
             _request = request;
             _requestReady = true;
         }
