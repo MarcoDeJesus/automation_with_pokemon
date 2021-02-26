@@ -32,23 +32,18 @@ namespace APIClients
             {
                 case "get":
                     CreateGETRequest();
-                    _requestReady = true;
                     break;
                 case "post":
                     CreatePOSTRequest();
-                    _requestReady = true;
                     break;
                 case "put":
                     CreatePUTRequest();
-                    _requestReady = true;
                     break;
                 case "delete":
                     CreateDELETERequest();
-                    _requestReady = true;
                     break;
                 default:
                     CreateGETRequest();
-                    _requestReady = true;
                     break;
             }
         }
